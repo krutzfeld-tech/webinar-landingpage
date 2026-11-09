@@ -32,7 +32,7 @@ section{padding:4rem 0}
 @media(min-width:1024px){section.gross{padding:6rem 0}}
 .bg-900{background:var(--slate-900)}
 .eyebrow{font-size:.875rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--cyan-300)}
-.eyebrow.weit{letter-spacing:.3em;font-size:.75rem;color:var(--cyan-200)}
+.eyebrow.weit{letter-spacing:.3em;font-size:.875rem;color:var(--cyan-200)}
 .kopf{max-width:48rem}
 .kopf>*+*{margin-top:1rem}
 .lead{font-size:1.125rem;color:var(--slate-300)}
@@ -58,7 +58,7 @@ ul.punkte.klein li::before{width:.5rem;height:.5rem;margin-top:.55rem}
 .box.cyan{border-color:rgba(34,211,238,.3);background:rgba(34,211,238,.1);box-shadow:0 25px 50px -12px rgba(22,78,99,.4)}
 .box.rose{border-color:rgba(251,113,133,.3);background:rgba(244,63,94,.1)}
 .box.verlauf{background:linear-gradient(135deg,var(--slate-900),var(--slate-950) 50%,var(--slate-950));box-shadow:0 25px 50px -12px rgba(0,0,0,.4)}
-.pill{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;background:rgba(103,232,249,.2);padding:.25rem 1rem;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--cyan-100)}
+.pill{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;background:rgba(103,232,249,.2);padding:.25rem 1rem;font-size:.875rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--cyan-100)}
 .pill.rand{background:transparent;border:1px solid rgba(255,255,255,.25);color:var(--slate-200);letter-spacing:.2em;font-size:.875rem;padding:.35rem .9rem}
 .tilt{transform-style:preserve-3d;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
 .tilt:hover{border-color:rgba(103,232,249,.4)}
@@ -161,13 +161,13 @@ ul.haken li span{color:var(--slate-100)}
 .visible .leiter svg.sprung path{stroke-dashoffset:0}
 .leiter svg.sprung .spitze{fill:var(--rose-300);opacity:0;transition:opacity .3s ease 1.7s}
 .visible .leiter svg.sprung .spitze{opacity:1}
-.sprung-label{position:absolute;left:2.6rem;border:1px solid rgba(251,113,133,.4);background:rgba(244,63,94,.12);color:var(--rose-100);font-size:.8rem;font-weight:600;border-radius:999px;padding:.3rem .7rem;white-space:nowrap;opacity:0;transition:opacity .4s ease 1.2s}
+.sprung-label{position:absolute;left:2.6rem;border:1px solid rgba(251,113,133,.4);background:rgba(244,63,94,.12);color:var(--rose-100);font-size:.875rem;font-weight:600;border-radius:999px;padding:.3rem .7rem;white-space:nowrap;opacity:0;transition:opacity .4s ease 1.2s}
 .visible .sprung-label{opacity:1}
 
 /* Raster */
 .grid{display:grid;gap:1.5rem}
 @media(min-width:768px){.grid.c2{grid-template-columns:1fr 1fr}.grid.c3{grid-template-columns:repeat(3,1fr)}}
-.phase{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.3em;color:var(--cyan-200)}
+.phase{font-size:.875rem;font-weight:600;text-transform:uppercase;letter-spacing:.3em;color:var(--cyan-200)}
 .box h3.gross{font-size:1.5rem;margin-top:.75rem}
 .box .unter{margin-top:.5rem;font-size:.875rem;color:var(--slate-200)}
 .box ul.punkte{margin-top:1.5rem}
@@ -182,7 +182,7 @@ ul.haken li span{color:var(--slate-100)}
 .referenz .text{width:100%}
 @media(min-width:768px){.referenz .text{width:66.666%}}
 .referenz .text>*+*{margin-top:1rem}
-.referenz .tag{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--cyan-200)}
+.referenz .tag{font-size:.875rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--cyan-200)}
 .referenz h3{font-size:1.875rem}
 .referenz .rolle{font-size:1rem;font-weight:500;color:var(--slate-300);margin-top:.5rem}
 .referenz .bildrahmen{position:relative;overflow:hidden;border-radius:1.5rem;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05)}
@@ -191,10 +191,10 @@ ul.haken li span{color:var(--slate-100)}
 .kennzahlen{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;border-radius:1.5rem;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);padding:1.25rem}
 @media(min-width:768px){.kennzahlen{grid-template-columns:1fr;gap:1.25rem;padding:1.5rem;height:100%}}
 .kennzahlen b{display:block;font-size:2.25rem;font-weight:600;color:#fff;line-height:1}
-.kennzahlen span{display:block;margin-top:.35rem;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--slate-400)}
+.kennzahlen span{display:block;margin-top:.35rem;font-size:.875rem;text-transform:uppercase;letter-spacing:.1em;color:var(--slate-400)}
 .weg{list-style:none;display:grid;gap:.75rem}
 .weg li{display:grid;grid-template-columns:6.5rem 1fr;gap:1rem;align-items:start;border-top:1px solid rgba(255,255,255,.08);padding-top:.75rem}
-.weg li .lbl{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:var(--slate-400);padding-top:.2rem}
+.weg li .lbl{font-size:.875rem;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:var(--slate-400);padding-top:.2rem}
 .weg li.vorher .lbl{color:var(--rose-300)}
 .weg li.danach .lbl{color:var(--cyan-200)}
 .weg li p{color:var(--slate-100);font-size:.9375rem}
@@ -284,13 +284,13 @@ body.popup-offen .sticky-cta{transform:translateY(110%)}
 .pop input{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:.875rem;padding:.8rem .9rem;color:#fff;font-size:1rem}
 .pop input:focus{outline:2px solid var(--cyan-300);outline-offset:1px;border-color:transparent}
 .pop .super{width:100%;margin-top:.25rem}
-.pop .klein{font-size:.8125rem;color:var(--slate-400);text-align:center}
+.pop .klein{font-size:.875rem;color:var(--slate-400);text-align:center}
 .pop .fehler{display:none;color:var(--rose-300);font-size:.875rem}
 .pop .fehler.zeigen{display:block}
 .kacheln{display:grid;gap:.625rem}
 @media(min-width:560px){.kacheln{grid-template-columns:1fr 1fr}}
 .kachel{display:flex;flex-direction:column;align-items:flex-start;gap:.25rem;text-align:left;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:1rem;padding:.9rem 1rem;color:var(--slate-100);font-weight:600;font-size:.9375rem;line-height:1.3;transition:border-color .2s ease,background .2s ease}
-.kachel small{font-weight:400;color:var(--slate-400);font-size:.8125rem}
+.kachel small{font-weight:400;color:var(--slate-400);font-size:.875rem}
 .kachel:hover,.kachel:focus-visible{border-color:var(--cyan-300);outline:0;background:rgba(103,232,249,.08)}
 .kachel.aktiv{border-color:var(--cyan-300);background:rgba(103,232,249,.1)}
 
