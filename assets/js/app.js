@@ -150,7 +150,7 @@
     var x = 17; // Mitte der Stufen-Kästchen (18px Innenabstand + 17px halbe Breite)
     var x1 = ar.left - lr.left + 18 + x, y1 = ar.top - lr.top + ar.height;
     var x2 = zr.left - lr.left + 18 + x, y2 = zr.top - lr.top - 4;
-    var bog = Math.max(60, (y2 - y1) * 0.35);
+    var bog = Math.min(Math.max(60, (y2 - y1) * 0.35), Math.max(12, x1 - 8));
     var cx = x1 - bog;
     svg.setAttribute('viewBox', '0 0 ' + lr.width + ' ' + lr.height);
     $('path', svg).setAttribute('d', 'M ' + x1 + ' ' + y1 + ' C ' + cx + ' ' + (y1 + 40) + ', ' + cx + ' ' + (y2 - 40) + ', ' + x2 + ' ' + y2);

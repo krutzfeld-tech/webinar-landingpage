@@ -49,6 +49,14 @@ Gesetzt ist der von Martin abgenommene Webinar-Titel (Deck Folie 1, WebinarJam, 
 8. **Impressum/Datenschutz** verlinken auf krutzfeld.tech. Datenschutzerklärung dort um WebinarJam ergänzen, bevor die Seite live geht.
 9. **Domain**: Vorschlag `webinar.krutzfeld.tech` oder `testen-statt-bauen.de` (heute IONOS-Weiterleitung auf krutzfeld.tech/call).
 
+## UX-Iterationen 09.11.2026 (lokal, noch nicht deployt)
+
+1. **Breite und Raster:** Inhalt bis 1280 px, Hero 7/5 mit Bühne (Handy plus schwebende Karten), Beweis-Kopf zweispaltig mit Kundenkarte, Ticket, FAQ und „Für wen“ auf volle Breite, Gastgeber ausgewogen.
+2. **Hierarchie und Lesefluss:** Sektionsköpfe bei Rastern zentriert, CTA als Zeile (Button plus Mikrozeile), Fakten in die Gastgeberkarte, kürzerer Hero-Lead, Sticky-CTA auf dem Handy, Verbinder in der Problemkette.
+3. **Feinschliff:** Handy-Mock mit echtem Inhalt (Anfrage, Schritt 2 von 3), Icons in Inhalte- und Live-Karten, Hover- und Druckzustände, Topbar-Schatten, kompaktere Abstände auf dem Handy, Footer-Logo, Leiter-Etikett und Pfeil auf schmalen Bildschirmen.
+
+Screenshots je Iteration: `qa/iter0` (vorher) bis `qa/iter3`.
+
 ## Prüfen
 
 Lokal: `python3 -m http.server 8080` im Repo-Ordner, dann http://localhost:8080. Screenshots 390 px und 1440 px plus Lighthouse liegen im Ordner `qa/` (nicht versioniert).
