@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><title>Teaser</title>
+<style>
+@font-face{font-family:'Inter';font-weight:100 900;font-display:block;src:url('../assets/fonts/inter-latin.woff2') format('woff2')}
+html,body{margin:0;background:#020617;overflow:hidden}
+.stage{position:relative;width:1280px;height:720px;overflow:hidden;background:#020617;font-family:'Inter',system-ui,sans-serif;color:#e2e8f0}
+.blob{position:absolute;width:760px;height:760px;border-radius:50%;filter:blur(90px);opacity:.55;will-change:transform}
+.blob.a{background:radial-gradient(circle,rgba(34,211,238,.55),rgba(34,211,238,0) 65%)}
+.blob.b{background:radial-gradient(circle,rgba(59,130,246,.45),rgba(59,130,246,0) 65%)}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(circle at 50% 50%,#000 30%,transparent 80%);-webkit-mask-image:radial-gradient(circle at 50% 50%,#000 30%,transparent 80%)}
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 110px;opacity:0;will-change:opacity,transform}
+.scene h1{margin:0;font-size:66px;line-height:1.12;font-weight:600;letter-spacing:-.025em;color:#fff;text-wrap:balance}
+.scene h1.klein{font-size:54px}
+.scene p{margin:22px 0 0;font-size:28px;color:#cbd5e1}
+.glow{color:#67e8f9;text-shadow:0 0 10px rgba(6,182,212,.65),0 0 20px rgba(6,182,212,.45),0 0 30px rgba(14,165,233,.35),0 0 50px rgba(59,130,246,.25)}
+.eyebrow{font-size:18px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#a5f3fc;margin-bottom:26px}
+.logo{width:420px;height:auto}
+.badge{display:inline-flex;align-items:center;gap:14px;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:12px 26px;font-size:22px;color:#e2e8f0;margin-top:30px}
+.badge i{width:12px;height:12px;border-radius:50%;background:#fb7185;box-shadow:0 0 0 6px rgba(251,113,133,.25)}
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;padding:22px 46px;border-radius:100px;font-size:28px;font-weight:600;color:#fff;background:#0a0a0a;margin-top:34px;letter-spacing:.3px;overflow:hidden;border:2px solid rgba(255,255,255,.2);box-shadow:0 0 30px rgba(0,255,255,.15)}
+.btn::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:conic-gradient(from var(--rot,0deg),#00ffff,#ffffff,#c0ffff);z-index:0}
+.btn::after{content:'';position:absolute;inset:2px;background:#0a0a0a;border-radius:inherit;z-index:0}
+.btn span{position:relative;z-index:1}
+.bar{position:absolute;left:0;bottom:0;height:5px;background:linear-gradient(90deg,#22d3ee,#67e8f9);width:0}
+.logo-klein{position:absolute;left:56px;top:44px;width:170px;height:auto;opacity:0}
+.zeile{display:block}
+</style></head>
+<body>
+<div class="stage" id="stage">
+  <div class="blob a" id="ba"></div><div class="blob b" id="bb"></div>
+  <div class="grid"></div>
+  <img class="logo-klein" id="lk" src="../assets/img/logo-wordmark.png" alt="">
+  <div class="scene" data-s="0"><img class="logo" src="../assets/img/logo-wordmark.png" alt=""><div class="badge"><i></i>Live-Webinar</div></div>
+  <div class="scene" data-s="1"><h1>Du hast eine App&#8209;Idee.</h1></div>
+  <div class="scene" data-s="2"><h1>Seit Jahren im Kopf.</h1></div>
+  <div class="scene" data-s="3"><h1>Drei Angebote. Drei Preise.<span class="zeile" data-sub style="color:#fda4af">Keiner vergleichbar.</span></h1></div>
+  <div class="scene" data-s="4"><h1 class="klein">Was, wenn Du Dich in <span class="glow">7&nbsp;Tagen</span> durch <span class="glow">Deine eigene App</span> klicken könntest?</h1></div>
+  <div class="scene" data-s="5"><h1>Bevor Du <span class="glow">5&#8209;stellig</span> investierst.</h1></div>
+  <div class="scene" data-s="6"><div class="eyebrow">Live-Webinar mit Martin Krutzfeld</div><h1 class="klein">Mittwoch, 2. Dezember 2026<span class="zeile">11:00 Uhr · kostenlos</span></h1></div>
+  <div class="scene" data-s="7"><img class="logo" src="../assets/img/logo-wordmark.png" alt=""><div class="btn" id="btn"><span>Jetzt kostenlos anmelden</span></div><p>Link unter dem Video</p></div>
+  <div class="bar" id="bar"></div>
+</div>
+<script>
+// Szenen: [Start, Ende] in Sekunden. Ein-/Ausblenden je 0.6 s.
+var SZ=[[0,3.2],[3.2,6.2],[6.2,9.0],[9.0,13.0],[13.0,17.2],[17.2,20.2],[20.2,24.2],[24.2,28.0]], D=28.0, F=0.6;
+var ease=function(x){return x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2};
+var clamp=function(v){return Math.max(0,Math.min(1,v))};
+function render(t){
+  var scenes=document.querySelectorAll('.scene');
+  SZ.forEach(function(s,i){
+    var el=scenes[i], a=s[0], b=s[1];
+    var ein=clamp((t-a)/F), aus=clamp((b-t)/F), o=Math.min(ein,aus);
+    if(i===SZ.length-1) o=ein*clamp((D-t)/0.9); // letzte Szene blendet zum Schleifenende aus
+    var ty=(1-ease(ein))*26-(1-ease(aus))*18;
+    el.style.opacity=o; el.style.transform='translateY('+ty.toFixed(2)+'px)';
+    var sub=el.querySelector('[data-sub]'); if(sub){var e2=clamp((t-a-1.4)/F); sub.style.opacity=e2; sub.style.transform='translateY('+((1-ease(e2))*14).toFixed(2)+'px)';}
+  });
+  var ba=document.getElementById('ba'), bb=document.getElementById('bb');
+  ba.style.transform='translate('+(160+Math.sin(t*.35)*120).toFixed(1)+'px,'+(-220+Math.cos(t*.27)*90).toFixed(1)+'px)';
+  bb.style.transform='translate('+(700+Math.cos(t*.3)*130).toFixed(1)+'px,'+(220+Math.sin(t*.22)*100).toFixed(1)+'px)';
+  document.getElementById('bar').style.width=(t/D*1280).toFixed(1)+'px';
+  document.getElementById('lk').style.opacity=(t>3.2&&t<24.2)?clamp((t-3.2)/F)*clamp((24.2-t)/F):0;
+  document.getElementById('btn').style.setProperty('--rot',((t*90)%360).toFixed(1)+'deg');
+}
+window.render=render; window.DAUER=D; render(0);
+</script>
+</body></html>

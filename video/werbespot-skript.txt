@@ -1,0 +1,84 @@
+WERBESPOT ZUM LIVE-WEBINAR
+Skript für Martin, Stand 09.11.2026
+
+Zweck: Anmeldungen für das Live-Webinar am Mittwoch, 2. Dezember 2026, 11 Uhr.
+Der Spot verkauft den Termin, nicht den Inhalt. Nichts aus den drei Blöcken wird erklärt,
+nur angekündigt. Länge 45 bis 55 Sekunden. Du sprichst in die Kamera, Du-Form,
+Deine Sprache, kurze Sätze.
+
+
+HOOK (0 bis 5 Sekunden), drei Varianten, eine wählen
+
+Variante A, die Frage:
+   Du hast eine App-Idee. Seit Jahren im Kopf. Warum ist sie immer noch da drin?
+
+Variante B, das Geständnis:
+   Ich habe 600 Stunden in eine App gesteckt, die keiner wollte. Heute weiss ich, warum.
+
+Variante C, die Szene:
+   Drei Angebote für Deine App. Drei Preise. Und vergleichen kannst Du keinen davon.
+
+
+HAUPTTEIL (5 bis 40 Sekunden)
+
+   Vielleicht kennst Du das: Du hast eine App-Idee, Dein Geschäft läuft, aber eine
+   eigene IT hast Du nicht. Also holst Du Angebote ein. Oder Du baust selbst mit KI.
+   Und irgendwann stehst Du da und weisst nicht, wem Du was glauben sollst.
+
+   Ich bin Martin Krutzfeld. Ich entwickle seit über 14 Jahren Software, für Banken,
+   für MedTech, für Unternehmer wie Dich. Und ich bin mit meiner eigenen App-Idee
+   selbst auf die Schnauze geflogen. Was ich daraus gelernt habe, hat die Reihenfolge
+   verändert, in der ich seitdem jede App baue.
+
+   Genau darum geht es in meinem Live-Webinar: In 7 Tagen klickst Du Dich durch
+   Deine eigene App. Ohne vorab 5-stellig zu investieren.
+
+   Ich zeige Dir, wie das geht. Live, mit echten Beispielen aus meinen Projekten,
+   und Du kannst mir im Chat jede Frage stellen.
+
+
+TERMIN UND AUFRUF (40 bis 55 Sekunden)
+
+   Mittwoch, 2. Dezember, 11 Uhr. Kostenlos. Eine Stunde, die Dich davor bewahrt,
+   für Annahmen zu zahlen, die keiner getestet hat.
+
+   Klick auf den Link, trag Deinen Namen ein, fertig. Ich freue mich auf Dich.
+
+
+WAS IM SPOT NICHT VORKOMMT
+
+   Keine der drei Fragen aus dem Webinar wird beantwortet (Investition, KI, Partner).
+   Keine Erklärung der vier Stufen, kein Wort zu Annahme aufschreiben, Nutzer testen, Festpreis.
+   Keine Zahlen aus Kundenprojekten, keine Kundennamen, kein Preis, keine Garantie,
+   kein Erstgespräch. Das alles gehört ins Webinar und in den Pitch.
+   Nur die 600 Stunden und die 14 Jahre, beides sind Deine eigenen Zahlen.
+
+
+KURZFASSUNG FÜR REELS UND ANZEIGEN (15 Sekunden)
+
+   Du hast eine App-Idee, seit Jahren im Kopf?
+   Dann komm in mein Live-Webinar: In 7 Tagen klickst Du Dich durch Deine eigene App,
+   ohne vorab 5-stellig zu investieren.
+   Mittwoch, 2. Dezember, 11 Uhr, kostenlos. Link unten.
+
+
+DREHHINWEISE
+
+   Bild: Du vor dunklem Hintergrund oder im Büro, Kamera auf Augenhöhe, Querformat 16 zu 9
+      für die Landingpage, zusätzlich eine Hochformat-Fassung 9 zu 16 für Reels.
+   Ton: Ansteckmikrofon oder Handy nah am Körper, kein Hall.
+   Licht: eine Lichtquelle schräg von vorn, kein Fenster im Rücken.
+   Schnitt: harte Schnitte zwischen den Absätzen, bei Variante B eine kurze Pause nach
+      „die keiner wollte“. Untertitel einbrennen, der Spot läuft auf der Seite ohne Ton.
+   Einblendungen: Dein Name und „Krutzfeld Technologies, Zug“ beim ersten Satz über Dich;
+      Termin „Mi, 2. Dezember 2026 · 11:00 Uhr · kostenlos“ beim Aufruf; am Ende das Logo.
+   Carlos: darf am Anfang oder am Ende durchs Bild laufen, nicht beim Termin.
+   Bild im Hintergrund: Laptop oder Handy mit einem Klickprototyp, unscharf, ohne lesbare Inhalte.
+   Länge: unter 60 Sekunden, sonst springen die Leute ab, bevor der Termin fällt.
+
+
+SO KOMMT DER SPOT AUF DIE SEITE
+
+   Datei als MP4 (H.264, 1280 mal 720 oder 1920 mal 1080) nach assets/video/hero-teaser.mp4,
+   ein Standbild als assets/video/hero-poster.jpg. Mehr ist nicht nötig, die Seite nimmt
+   beide Dateien automatisch. Bis dahin läuft der generierte Teaser mit Textanimation.

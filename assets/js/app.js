@@ -141,6 +141,10 @@
     el.addEventListener('pointerleave', function () { el.style.transform = 'perspective(' + persp + 'px) rotateX(0deg) rotateY(0deg)'; });
   });
 
+  /* Hero-Teaser: bei reduzierter Bewegung anhalten */
+  var teaser = $('[data-teaser]');
+  if (teaser && reduziertMotion()) { teaser.removeAttribute('autoplay'); teaser.pause(); teaser.setAttribute('controls', ''); }
+
   /* Reveal-Animationen */
   var reduziert = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var reveals = $$('.reveal');
