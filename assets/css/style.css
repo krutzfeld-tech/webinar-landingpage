@@ -59,7 +59,7 @@ ul.punkte.klein li::before{width:.5rem;height:.5rem;margin-top:.55rem}
 .box.rose{border-color:rgba(251,113,133,.3);background:rgba(244,63,94,.1)}
 .box.verlauf{background:linear-gradient(135deg,var(--slate-900),var(--slate-950) 50%,var(--slate-950));box-shadow:0 25px 50px -12px rgba(0,0,0,.4)}
 .pill{display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;background:rgba(103,232,249,.2);padding:.25rem 1rem;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--cyan-100)}
-.pill.rand{background:transparent;border:1px solid rgba(255,255,255,.25);color:var(--slate-200);letter-spacing:.3em;font-size:.7rem;padding:.35rem .9rem}
+.pill.rand{background:transparent;border:1px solid rgba(255,255,255,.25);color:var(--slate-200);letter-spacing:.2em;font-size:.875rem;padding:.35rem .9rem}
 .tilt{transform-style:preserve-3d;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
 .tilt:hover{border-color:rgba(103,232,249,.4)}
 
@@ -90,6 +90,7 @@ body.vorschau-modus .vorschau{display:block}
 .header{position:sticky;top:0;z-index:50;background:rgba(2,6,23,.8);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 .header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-top:1rem;padding-bottom:1rem}
 .header .logo{width:10rem;height:auto}
+@media(max-width:480px){.header .logo{width:8rem}}
 .header .termin{display:none;font-size:.875rem;color:var(--slate-300)}
 .header .termin b{color:#fff;font-weight:600}
 @media(min-width:900px){.header .termin{display:block}}
@@ -146,12 +147,14 @@ ul.haken li span{color:var(--slate-100)}
 /* Leiter (Denkfehler) */
 .leiter-wrap{display:grid;gap:2.5rem;align-items:center;margin-top:3rem}
 @media(min-width:960px){.leiter-wrap{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:3rem}}
+.leiter-wrap>*{min-width:0}
 .leiter{position:relative;list-style:none;display:flex;flex-direction:column;gap:.625rem}
+.leiter li .t{flex:1 1 auto;min-width:0}
 .leiter li{display:flex;align-items:center;gap:1rem;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);border-radius:1rem;padding:.9rem 1.1rem;position:relative;color:var(--slate-100)}
 .leiter li .s{flex:none;width:2rem;height:2rem;border-radius:.6rem;background:rgba(103,232,249,.12);color:var(--cyan-200);display:flex;align-items:center;justify-content:center;font-weight:600;font-size:.875rem}
 .leiter li.verdeckt .t{filter:blur(6px);user-select:none;color:var(--slate-300);max-width:calc(100% - 7rem);overflow:hidden;white-space:nowrap}
 .leiter li.verdeckt .s{color:var(--slate-400);background:rgba(255,255,255,.05)}
-.leiter li.verdeckt .live{margin-left:auto;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan-200);border:1px solid rgba(165,243,252,.35);border-radius:999px;padding:.2rem .6rem;white-space:nowrap}
+.leiter li.verdeckt .live{margin-left:auto;font-size:.875rem;letter-spacing:.15em;text-transform:uppercase;color:var(--cyan-200);border:1px solid rgba(165,243,252,.35);border-radius:999px;padding:.2rem .6rem;white-space:nowrap}
 .leiter li.ziel{border-color:rgba(103,232,249,.4);background:rgba(34,211,238,.08)}
 .leiter svg.sprung{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible}
 .leiter svg.sprung path{fill:none;stroke:var(--rose-300);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:100 300;stroke-dashoffset:101;transition:stroke-dashoffset 1.6s ease .3s}
@@ -224,7 +227,7 @@ ul.haken li span{color:var(--slate-100)}
 .founder .rechts>*+*{margin-top:1.25rem}
 .founder .rechts p{color:var(--slate-200)}
 .founder .bildkarte{border-radius:2rem;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);padding:1.5rem;box-shadow:0 25px 50px -12px rgba(0,0,0,.3)}
-.founder .bildkarte img{border-radius:1.5rem;width:100%;aspect-ratio:1;object-fit:cover;background:#000}
+.founder .bildkarte img{border-radius:1.5rem;width:100%;aspect-ratio:1;object-fit:contain;background:#000;padding:1.5rem}
 .founder .bildkarte .name{margin-top:1rem;text-align:center;color:#fff;font-weight:600}
 .founder .bildkarte .rolle{text-align:center;font-size:.875rem;color:var(--slate-400)}
 
@@ -250,7 +253,7 @@ footer .claim{margin-top:.5rem;color:var(--slate-400)}
 footer nav{display:flex;flex-direction:column;gap:.5rem}
 footer nav a{color:var(--slate-300);text-decoration:none}
 footer nav a:hover{color:#fff}
-footer .copy{margin-top:1.5rem;font-size:.75rem;color:var(--slate-500)}
+footer .copy{margin-top:1.5rem;font-size:.875rem;color:var(--slate-400)}
 
 /* Reveal wie animate-section */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
