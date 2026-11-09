@@ -88,14 +88,14 @@
     if (!ok) return;
     var seg = store.get(KEY_ZG) || '';
     store.set('tsb_vorname', vorname, true); store.set('tsb_email', email, true); store.set('tsb_seg', seg, true);
-    var btn = $('button[type=submit]', form); if (btn) { btn.disabled = true; btn.firstChild.textContent = 'Einen Moment …'; }
+    var btn = $('button[type=submit]', form); if (btn) { btn.disabled = true; (btn.querySelector('span') || btn).textContent = 'Einen Moment …'; }
     if (!istLive) { store.set(KEY_REG, '1'); location.href = 'danke.html?vorschau=1'; return; }
     var cfg = LP.anmeldung || {};
     if (cfg.modus === 'endpunkt' && cfg.anmeldeEndpunkt) {
       fetch(cfg.anmeldeEndpunkt, { method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ vorname: vorname, email: email, zielgruppe: seg, tag: 'webinar-zg-' + (seg || 'ohne'), quelle: location.href }) })
         .then(function () { store.set(KEY_REG, '1'); location.href = 'danke.html'; })
-        .catch(function () { if (fehler) { fehler.textContent = 'Das hat nicht geklappt. Bitte versuch es noch einmal.'; fehler.classList.add('zeigen'); } if (btn) { btn.disabled = false; btn.firstChild.textContent = 'Platz sichern'; } });
+        .catch(function () { if (fehler) { fehler.textContent = 'Das hat nicht geklappt. Bitte versuch es noch einmal.'; fehler.classList.add('zeigen'); } if (btn) { btn.disabled = false; (btn.querySelector('span') || btn).textContent = 'Platz sichern'; } });
     } else {
       store.set(KEY_REG, '1');
       var url = (LP.links || {}).webinarjamAnmeldung || 'danke.html';
@@ -129,6 +129,18 @@
     new IntersectionObserver(function (en) { var raus = !en[0].isIntersecting && en[0].boundingClientRect.top < 0; sticky.classList.toggle('zeigen', raus); sticky.setAttribute('aria-hidden', raus ? 'false' : 'true'); $('button', sticky).tabIndex = raus ? 0 : -1; }).observe(heroBtn);
   }
 
+  /* Tilt-Effekt wie appTiltCard der Website */
+  function reduziertMotion() { return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
+  if (!reduziertMotion()) $$('[data-tilt]').forEach(function (el) {
+    var max = 5, persp = 900;
+    el.addEventListener('pointermove', function (e) {
+      var r = el.getBoundingClientRect(), cx = r.width / 2, cy = r.height / 2;
+      var ry = ((e.clientX - r.left - cx) / cx) * max, rx = ((cy - (e.clientY - r.top)) / cy) * max;
+      el.style.transform = 'perspective(' + persp + 'px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg)';
+    });
+    el.addEventListener('pointerleave', function () { el.style.transform = 'perspective(' + persp + 'px) rotateX(0deg) rotateY(0deg)'; });
+  });
+
   /* Reveal-Animationen */
   var reduziert = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var reveals = $$('.reveal');
@@ -147,9 +159,9 @@
     var a = $('[data-stufe="1"]', leiter), z = $('[data-stufe="6"]', leiter), svg = $('svg.sprung', leiter), lbl = $('.sprung-label', leiter);
     if (!a || !z || !svg) return;
     var lr = leiter.getBoundingClientRect(), ar = a.getBoundingClientRect(), zr = z.getBoundingClientRect();
-    var x = 17; // Mitte der Stufen-Kästchen (18px Innenabstand + 17px halbe Breite)
-    var x1 = ar.left - lr.left + 18 + x, y1 = ar.top - lr.top + ar.height;
-    var x2 = zr.left - lr.left + 18 + x, y2 = zr.top - lr.top - 4;
+    var x = 16; // Mitte der Stufen-Kästchen (17.6px Innenabstand + 16px halbe Breite)
+    var x1 = ar.left - lr.left + 17.6 + x, y1 = ar.top - lr.top + ar.height;
+    var x2 = zr.left - lr.left + 17.6 + x, y2 = zr.top - lr.top - 4;
     var bog = Math.min(Math.max(60, (y2 - y1) * 0.35), Math.max(12, x1 - 8));
     var cx = x1 - bog;
     svg.setAttribute('viewBox', '0 0 ' + lr.width + ' ' + lr.height);

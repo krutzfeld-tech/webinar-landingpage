@@ -32,7 +32,7 @@
   /* Fortschritt merken */
   function erledigt(name) {
     lset('tsb_danke_' + name, '1');
-    var li = $('[data-schritt=' + name + ']'); if (li) { li.classList.add('erledigt'); var s = $('.s', li); if (s) s.textContent = '✓'; }
+    var li = $('[data-schritt=' + name + ']'); if (li) { li.classList.add('erledigt'); var s = $('.s', li); if (s) s.innerHTML = '<svg class="i"><use href="#i-haken"/></svg>'; }
     var f = $('[data-f=' + name + ']'); if (f) f.classList.add('voll');
   }
   ['kalender', 'frage', 'gespraech'].forEach(function (n) { if (lget('tsb_danke_' + n) === '1') erledigt(n); });

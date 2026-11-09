@@ -11,279 +11,384 @@
 <meta property="og:type" content="website">
 <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/style.css">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23020617'/%3E%3Ctext x='32' y='42' font-family='Inter,system-ui' font-size='30' font-weight='800' fill='%2367e8f9' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="assets/img/logo-wordmark.png">
 <script src="assets/js/config.js" defer></script>
 <script src="assets/js/app.js" defer></script>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M9 12.75 11.25 15 15 9.75"/><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></symbol>
+  <symbol id="i-haken" viewBox="0 0 24 24"><path d="M5 12.5 9.5 17 19 7.5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-pfeil" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-kreis" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/></symbol>
+</svg>
 
 <div class="vorschau" role="status">Vorschau: Anmeldungen werden nicht gespeichert.</div>
 
-<header class="topbar">
+<header class="header">
   <div class="wrap">
-    <a href="#top" aria-label="Krutzfeld Technologies"><img class="logo" src="assets/img/logo-wordmark.png" alt="Krutzfeld Technologies" width="480" height="174"></a>
-    <div class="termin"><span class="badge"><i class="live"></i>Live-Webinar</span><span><b data-ev="datumKurz">Mi, 2. Dez. 2026</b> · <b data-ev="zeitText">11:00 Uhr</b> · kostenlos</span></div>
-    <button class="btn klein" data-anmelden>Platz sichern</button>
+    <a href="#top" aria-label="Krutzfeld Technologies"><img class="logo" src="assets/img/logo-bg-black.png" alt="Krutzfeld Technologies Logo" width="640" height="360"></a>
+    <p class="termin"><b>Live-Webinar</b> · <span data-ev="datumKurz">Mi, 2. Dez. 2026</span> · <span data-ev="zeitText">11:00 Uhr</span> · kostenlos</p>
+    <button class="cta primaer" type="button" data-anmelden>Platz sichern</button>
   </div>
 </header>
 
 <main id="top">
 
-<!-- 2 Hero -->
+<!-- Hero -->
 <section class="hero">
   <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow" data-zgt="dach">Live-Webinar für Unternehmer mit 1 bis 10 Mitarbeitern</span>
-      <h1>In 7&nbsp;Tagen klickst Du Dich durch <span class="hl">Deine eigene App</span>. Ohne vorab 5&#8209;stellig zu investieren.</h1>
-      <p class="lead">Teste Deine App, bevor Du sie baust. Live zeige ich Dir, wie Du die eine Annahme hinter Deiner App&#8209;Idee findest und testest, bevor Du einen Entwickler beauftragst.</p>
-      <div class="cta-block">
-        <button class="btn" data-anmelden>Kostenlos anmelden<small><span data-ev="datumKurz">Mi, 2. Dez. 2026</span> · <span data-ev="zeitText">11:00 Uhr</span> · live</small></button>
-        <p class="cta-zeile">Live · Kostenlos · Dauer <span data-ev="dauerText">60 Minuten plus Fragen</span></p>
-      </div>
-      <div class="gastgeber-zeile"><span class="avatar" aria-hidden="true">MK</span><span><b style="color:#fff">Martin Krutzfeld</b><br>Gründer Krutzfeld Technologies, Zug</span></div>
-      <div class="proof-zeile"><span>115 Gespräche mit Unternehmern über ihre App&#8209;Idee</span><span>Über 14 Jahre Softwareentwicklung</span></div>
+    <div class="stack">
+      <p class="eyebrow" data-zgt="dach">Live-Webinar für Unternehmer mit 1 bis 10 Mitarbeitern</p>
+      <h1><span class="block">In 7&nbsp;Tagen klickst Du Dich durch <span class="glow">Deine eigene App</span>.</span><span class="block">Ohne vorab <span class="glow">5&#8209;stellig</span> zu investieren.</span></h1>
+      <p class="lead gross">Teste Deine App, bevor Du sie baust.</p>
+      <p class="lead">Live zeige ich Dir, wie Du die eine Annahme hinter Deiner App&#8209;Idee findest und testest, bevor Du einen Entwickler beauftragst.</p>
+      <div class="aktionen"><button class="super" type="button" data-anmelden><span>Kostenlos anmelden</span></button><span class="muted" style="font-size:.9375rem"><span data-ev="datumKurz">Mi, 2. Dez. 2026</span> · <span data-ev="zeitText">11:00 Uhr</span> · live</span></div>
+      <ul class="haken" aria-label="Was Du bekommst">
+        <li><svg class="i"><use href="#i-check"/></svg><span>Kostenlos und live, <span data-ev="dauerText">60 Minuten plus Fragen</span></span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span>Du findest die eine Annahme, auf der Deine App&#8209;Idee steht</span></li>
+        <li><svg class="i"><use href="#i-check"/></svg><span>Du erkennst, welchem Preis Du glauben kannst</span></li>
+      </ul>
+      <div class="gastgeber-zeile"><span class="avatar" aria-hidden="true">MK</span><span><b>Martin Krutzfeld</b>Gründer Krutzfeld Technologies, Zug · 115 Gespräche mit Unternehmern über ihre App&#8209;Idee</span></div>
     </div>
-    <div class="reveal buehne">
-      <div class="schwebt tag7" aria-hidden="true"><b>Tag 7</b><span>&nbsp;· Deine App zum Durchklicken</span></div>
-      <div class="schwebt kipp" aria-hidden="true"><span class="ico">✕</span><div><b>Annahme gekippt</b><span>„Kunden füllen selbst aus“</span></div></div>
-      <div class="schwebt ok" aria-hidden="true"><span class="ico">✓</span><div><b>Festpreis steht</b><span>vor der Umsetzung</span></div></div>
-      <div class="phone" aria-hidden="true">
-        <div class="notch"></div>
-        <div class="screen">
-          <div class="kopfzeile">Anfrage <span>Schritt 2 von 3</span></div>
-          <div class="fort"><i></i></div>
-          <div class="block"><span class="lbl">Kontakt</span><span class="st">✓</span></div>
-          <div class="block"><span class="lbl">Dein Anliegen</span><span class="st">✓</span></div>
-          <div class="block offen"><span class="lbl">Wunschtermin</span><span class="st">3</span></div>
-          <div class="knopf">Anfrage senden</div>
+    <div class="reveal">
+      <div class="visual" aria-hidden="true">
+        <div class="glowfeld"></div>
+        <div class="inhalt">
+          <div class="phone">
+            <div class="titel">Anfrage <span>Schritt 2 von 3</span></div>
+            <div class="fort"><i></i></div>
+            <div class="zeile">Kontakt <svg class="i"><use href="#i-check"/></svg></div>
+            <div class="zeile">Dein Anliegen <svg class="i"><use href="#i-check"/></svg></div>
+            <div class="zeile offen">Wunschtermin <svg class="i"><use href="#i-kreis"/></svg></div>
+            <div class="knopf">Anfrage senden</div>
+          </div>
         </div>
-        <span class="tap" style="left:58%;bottom:46px"></span>
+        <div class="caption"><span><b>Tag 7:</b> Deine App zum Durchklicken</span><span class="pill rand">Klickprototyp</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 3 Problem -->
+<!-- Marquee wie auf krutzfeld.tech -->
+<div class="marquee" aria-label="Referenzen">
+  <p>Zahlreiche Firmen vertrauen uns bereits</p>
+  <div class="spur"><div class="reihe">
+    <span>Quantum MedTech AG</span><span>Öffentlicher Sektor</span><span>Orange Business Solutions AG</span><span>Ataraxia Partners GmbH</span><span>EYUKO GmbH</span><span>ZKB</span><span>Finnova</span><span>Holling Service GmbH</span><span>Max &amp; Molly</span><span>Zurich Insurance</span>
+    <span aria-hidden="true">Quantum MedTech AG</span><span aria-hidden="true">Öffentlicher Sektor</span><span aria-hidden="true">Orange Business Solutions AG</span><span aria-hidden="true">Ataraxia Partners GmbH</span><span aria-hidden="true">EYUKO GmbH</span><span aria-hidden="true">ZKB</span><span aria-hidden="true">Finnova</span><span aria-hidden="true">Holling Service GmbH</span><span aria-hidden="true">Max &amp; Molly</span><span aria-hidden="true">Zurich Insurance</span>
+  </div></div>
+</div>
+
+<!-- Problem, im Stil „Das Problem“ der Website -->
 <section id="problem">
-  <div class="wrap reveal">
-    <span class="eyebrow">Kennst Du das?</span>
-    <p class="frage" data-zgt="frage">Würdest Du bei einem Handwerker ein Haus bestellen, ohne zu sagen, wie es aussehen soll?</p>
-    <p class="frage-nach">Bei Apps passiert genau das jeden Tag. So entsteht der Schaden:</p>
-    <ol class="kette">
-      <li><span class="n">1</span><p>Die Idee ist seit Jahren im Kopf. Beschreiben kannst Du sie nur ungefähr, denn gesehen hat die App noch keiner. Auch Du nicht.</p></li>
-      <li><span class="n">2</span><p data-zgt="schmerz">Dann kommen die Angebote: drei Preise. Und vergleichen kannst Du keinen davon.</p></li>
-      <li class="schmerz"><span class="n">3</span><p>Was Du bekommst, siehst Du nach Monaten. Wenn das Geld schon weg ist.</p></li>
-    </ol>
-    <div class="cta-block"><button class="btn" data-anmelden>Kostenlos anmelden<small><span data-ev="datumKurz">Mi, 2. Dez. 2026</span> · <span data-ev="zeitText">11:00 Uhr</span> · live</small></button><p class="cta-zeile">Live dazu: woran Du erkennst, welchem Preis Du glauben kannst.</p></div>
+  <div class="wrap reveal stack" style="--gap:3rem">
+    <header class="kopf">
+      <p class="eyebrow">Das Problem</p>
+      <h2 data-zgt="frage">Würdest Du bei einem Handwerker ein Haus bestellen, ohne zu sagen, wie es aussehen soll?</h2>
+      <p class="lead">Bei Apps passiert genau das jeden Tag. Die Idee ist seit Jahren im Kopf, beschreiben kannst Du sie nur ungefähr. Gesehen hat die App noch keiner, auch Du nicht.</p>
+      <p class="muted">Aber was passiert dann?</p>
+    </header>
+    <ul class="punkte box" style="margin-top:2.5rem">
+      <li data-zgt="schmerz">Dann kommen die Angebote: drei Preise. Und vergleichen kannst Du keinen davon.</li>
+      <li>Also baut der Entwickler, was beschrieben wurde. Deine Annahmen werden eingebaut, Funktion für Funktion.</li>
+      <li>Ob ein Kunde das so will, hat dabei keiner gefragt.</li>
+      <li>Was Du bekommst, siehst Du nach Monaten. Wenn das Geld schon weg ist.</li>
+    </ul>
+    <div class="stack" style="margin-top:2rem;font-size:1.125rem">
+      <p>Die Wahrheit ist: Die beste App&#8209;Idee ist nur eine Annahme, bis echte Nutzer sie durchgeklickt haben.</p>
+      <p style="color:#fff">Und genau darum geht es im Live-Webinar.</p>
+    </div>
   </div>
 </section>
 
-<!-- 4 Die richtige Reihenfolge -->
-<section id="reihenfolge" style="background:var(--bg2)">
+<!-- Denkfehler mit Leiter -->
+<section id="reihenfolge" class="bg-900">
   <div class="wrap reveal">
-    <div class="kopf"><span class="eyebrow">Der Denkfehler</span>
-    <h2>Die beste App&#8209;Idee ist nur eine Annahme, bis echte Nutzer sie <span class="hl">durchgeklickt</span> haben.</h2></div>
+    <header class="kopf">
+      <p class="eyebrow">Der Denkfehler</p>
+      <h2>Zwischen Idee und Bauen liegen vier Stufen. Die meisten überspringen sie.</h2>
+    </header>
     <div class="leiter-wrap">
       <ol class="leiter" data-leiter>
         <li data-stufe="1"><span class="s">1</span><span class="t">App&#8209;Idee im Kopf</span></li>
-        <li class="verdeckt"><span class="s">2</span><span class="t">Die eine Annahme aufschreiben</span></li>
-        <li class="verdeckt"><span class="s">3</span><span class="t">In 7 Tagen durchklicken</span></li>
-        <li class="verdeckt"><span class="s">4</span><span class="t">Mit echten Nutzern testen</span></li>
-        <li class="verdeckt"><span class="s">5</span><span class="t">Den Festpreis kennen</span></li>
+        <li class="verdeckt"><span class="s">2</span><span class="t">Die eine Annahme aufschreiben</span><span class="live">live</span></li>
+        <li class="verdeckt"><span class="s">3</span><span class="t">In 7 Tagen durchklicken</span><span class="live">live</span></li>
+        <li class="verdeckt"><span class="s">4</span><span class="t">Mit echten Nutzern testen</span><span class="live">live</span></li>
+        <li class="verdeckt"><span class="s">5</span><span class="t">Den Festpreis kennen</span><span class="live">live</span></li>
         <li class="ziel" data-stufe="6"><span class="s">6</span><span class="t">Bauen lassen</span></li>
         <svg class="sprung" aria-hidden="true"><path pathLength="100" d=""></path><polygon class="spitze" points=""></polygon></svg>
         <span class="sprung-label" aria-hidden="true">Die meisten springen direkt hierhin</span>
       </ol>
-      <div>
+      <div class="stack">
         <p class="lead">Viele Unternehmer halten ihre Idee für geprüft, weil sie ihre Branche kennen. Aber das heißt nicht, dass Du weißt, was Deine Kunden für eine App brauchen.</p>
-        <p class="lead" style="margin-top:16px">Also baut der Entwickler, was beschrieben wurde. Was der Markt wollte, zeigt erst der Verkauf. Zwischen Idee und Bauen liegen vier Stufen. Welche das sind und wie Du sie in 7&nbsp;Tagen gehst, zeige ich Dir live.</p>
-        <div class="cta-block"><button class="btn" data-anmelden>Kostenlos anmelden<small><span data-ev="datumKurz">Mi, 2. Dez. 2026</span> · <span data-ev="zeitText">11:00 Uhr</span> · live</small></button><p class="cta-zeile">Live dazu: die vier Stufen dazwischen.</p></div>
+        <p class="lead">Welche vier Stufen dazwischen liegen und wie Du sie in 7&nbsp;Tagen gehst, zeige ich Dir live.</p>
+        <div class="aktionen" style="padding-top:.5rem"><button class="super" type="button" data-anmelden><span>Platz sichern</span></button></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 5 Schritte -->
+<!-- Schritte, im Stil „Prozess“ der Website -->
 <section id="schritte">
   <div class="wrap reveal">
-    <div class="kopf center"><span class="eyebrow">So gehst Du vor</span>
-    <h2>Erst durchklicken. Dann testen. <span class="hl">Dann bauen.</span></h2></div>
-    <div class="grid c3" style="margin-top:36px">
-      <article class="card schritt">
-        <span class="n">1</span>
-        <div class="viz" aria-hidden="true"><div class="mini"><i></i><i></i><i></i></div><div class="mini"><i></i><i></i><i></i></div><div class="mini"><i></i><i></i><i></i></div></div>
-        <h3>Erst durchklicken</h3>
-        <p>Bevor jemand baut, klickst Du Dich durch Deine App: Masken, Knöpfe, Abläufe. Du siehst, was Du bekommst, bevor es Geld kostet.</p>
+    <header class="kopf">
+      <p class="eyebrow">So gehst Du vor</p>
+      <h2>In 3 Schritten zur App, die jemand braucht</h2>
+      <p class="lead">Erst durchklicken, dann testen, dann bauen. Im Webinar gehen wir jeden Schritt durch.</p>
+    </header>
+    <div class="grid c3" style="margin-top:3rem">
+      <article class="box r3 schatten tilt" data-tilt>
+        <p class="phase">Schritt 1</p>
+        <h3 class="gross">Erst durchklicken</h3>
+        <p class="unter">Bevor jemand baut, siehst Du Deine App.</p>
+        <ul class="punkte klein">
+          <li>Masken, Knöpfe und Abläufe zum Anfassen</li>
+          <li>Du siehst, was Du bekommst, bevor es Geld kostet</li>
+          <li>In 7 Tagen statt nach Monaten</li>
+        </ul>
       </article>
-      <article class="card schritt">
-        <span class="n">2</span>
-        <div class="viz" aria-hidden="true"><div class="nutzer"><b data-urteil="✓">A</b><b class="nein" data-urteil="✕">B</b><b data-urteil="✓">C</b></div></div>
-        <h3>Mit echten Nutzern testen</h3>
-        <p>Deine Kunden klicken sich durch. Was sie nicht brauchen, fliegt raus. Deine Annahmen kippen jetzt, nicht nach dem Start.</p>
+      <article class="box r3 schatten tilt" data-tilt>
+        <p class="phase">Schritt 2</p>
+        <h3 class="gross">Mit echten Nutzern testen</h3>
+        <p class="unter">Deine Kunden klicken sich durch.</p>
+        <ul class="punkte klein">
+          <li>Was sie nicht brauchen, fliegt raus</li>
+          <li>Deine Annahmen kippen jetzt, nicht nach dem Start</li>
+          <li>Du weißt, ob der Markt die Lösung annimmt</li>
+        </ul>
       </article>
-      <article class="card schritt">
-        <span class="n">3</span>
-        <div class="viz" aria-hidden="true"><div class="preis"><div class="label"><span>Umfang</span><b>Festpreis</b></div><div class="balken"><i></i></div><div class="label"><span>Tag 1</span><span>Tag 7</span></div></div></div>
-        <h3>Zum Erfolg bringen</h3>
-        <p>Erst jetzt wird gebaut. Der Prototyp ist die Vorlage für das Angebot. Den Festpreis kennst Du, bevor Du die Umsetzung beauftragst.</p>
+      <article class="box r3 schatten tilt" data-tilt>
+        <p class="phase">Schritt 3</p>
+        <h3 class="gross">Zum Erfolg bringen</h3>
+        <p class="unter">Erst jetzt wird gebaut.</p>
+        <ul class="punkte klein">
+          <li>Der Prototyp ist die Vorlage für das Angebot</li>
+          <li>Den Festpreis kennst Du vor der Beauftragung</li>
+          <li>Keine ungewollten Funktionen</li>
+        </ul>
       </article>
     </div>
-    <div class="cta-block center" style="align-items:center"><button class="btn" data-anmelden>Kostenlos anmelden<small><span data-ev="datumKurz">Mi, 2. Dez. 2026</span> · <span data-ev="zeitText">11:00 Uhr</span> · live</small></button><p class="cta-zeile">Live dazu: wie Du an echte Nutzer kommst.</p></div>
   </div>
 </section>
 
-<!-- 6 Beweis -->
-<section id="beweis" style="background:var(--bg2)">
+<!-- Beweis als Referenz-Block -->
+<section id="beweis" class="bg-900">
   <div class="wrap reveal">
-    <span class="eyebrow">Aus der Praxis</span>
-    <div class="beweis-kopf">
-      <p class="zitat">„Das haben sie sich selber angekreuzt. Und das ist echt ein Game Changer für sie.“</p>
-      <div class="kundenkarte"><span class="avatar" aria-hidden="true">IM</span><div><b>Inhaberin, Studio mit zwei Standorten</b><span>Beckenboden-Training, Schweiz · Name auf Anfrage</span></div></div>
-    </div>
-    <ol class="weg">
-      <li class="vorher"><div class="lbl">Vorher</div><p>Anfragen, Verträge und Sitzungen liefen auf Papier, in Excel und über WhatsApp. Der zweite Standort stand kurz vor der Eröffnung.</p></li>
-      <li><div class="lbl">Der Anfang</div><p>Erstgespräch, 20 Minuten. Danach der Klickprototyp: Anfrage, Onboarding, Vertrag. Beim Durchklicken kippte die erste Annahme: Die Kundinnen füllen den Bogen selbst aus.</p></li>
-      <li class="danach"><div class="lbl">Danach</div><p>Seit April arbeiten beide Standorte mit der App.</p>
-        <div class="zahlen"><div><b>225</b><span>Anfragen</span></div><div><b>160</b><span>Kunden</span></div><div><b>2</b><span>Standorte</span></div></div></li>
-    </ol>
-    <p class="hinweis">Zahlen aus der Datenbank des Kunden, Stand 27.10.2026.</p>
+    <header class="kopf">
+      <p class="eyebrow">Aus der Praxis</p>
+      <h2>Ein Studio mit zwei Standorten, in 7 Wochen vom Erstgespräch zur App</h2>
+    </header>
+    <article class="box verlauf referenz" style="margin-top:3rem">
+      <div class="bild">
+        <div class="kennzahlen">
+          <div><b>225</b><span>Anfragen</span></div>
+          <div><b>160</b><span>Kunden</span></div>
+          <div><b>2</b><span>Standorte</span></div>
+        </div>
+      </div>
+      <div class="text">
+        <p class="tag">Beckenboden-Training, Schweiz</p>
+        <p class="zitat">„Das haben sie sich selber angekreuzt. Und das ist echt ein Game Changer für sie.“</p>
+        <p class="rolle">Inhaberin, über ihre Kundinnen. Name auf Anfrage.</p>
+        <ol class="weg">
+          <li class="vorher"><span class="lbl">Vorher</span><p>Anfragen, Verträge und Sitzungen auf Papier, in Excel und über WhatsApp. Der zweite Standort stand kurz vor der Eröffnung.</p></li>
+          <li><span class="lbl">Der Anfang</span><p>Erstgespräch, 20 Minuten. Danach der Klickprototyp: Anfrage, Onboarding, Vertrag. Beim Durchklicken kippte die erste Annahme: Die Kundinnen füllen den Bogen selbst aus.</p></li>
+          <li class="danach"><span class="lbl">Danach</span><p>Seit April arbeiten beide Standorte mit der App.</p></li>
+        </ol>
+        <p class="hinweis">Zahlen aus der Datenbank des Kunden, Stand 27.10.2026.</p>
+      </div>
+    </article>
   </div>
 </section>
 
-<!-- 7 Inhalte -->
+<!-- Inhalte, im Stil „Die Lösung“ der Website -->
 <section id="inhalte">
-  <div class="wrap reveal">
-    <div class="kopf center"><span class="eyebrow">Worum es geht</span>
-    <h2>Im Live-Webinar klären wir <span class="hl">drei Fragen</span>:</h2></div>
-    <div class="grid c4 bento" style="margin-top:36px">
-      <article class="card"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M7 12h.01M17 12h.01"/></svg></span><span class="n">Frage 1</span><h3>Was musst Du investieren?</h3><p>Wie Du zu einer realistischen Aufwandsschätzung für Deine App kommst. Und warum Angebote so weit auseinanderliegen.</p></article>
-      <article class="card"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.2L18 9l-4.2 1.8L12 15l-1.8-4.2L6 9l4.2-1.8z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg></span><span class="n">Frage 2</span><h3>Wie weit kommst Du mit KI allein?</h3><p>Was KI&#8209;Tools heute für Dich herausholen. Und was Du mit dem anfängst, was Du schon gebaut hast.</p></article>
-      <article class="card"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="n">Frage 3</span><h3>Wie erkennst Du einen guten Umsetzungspartner?</h3><p>Woran Du vor dem ersten Euro erkennst, ob ein Anbieter liefert.</p></article>
-      <article class="card ergebnis"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4L17 12H5"/></svg></span><span class="n">Dein Ergebnis</span><h3>Die eine Annahme</h3><p>Du hast die eine Annahme aufgeschrieben, auf der Deine App&#8209;Idee steht. Und Du weißt, wie Du sie testest, bevor Du investierst.</p></article>
-    </div>
+  <div class="wrap reveal stack">
+    <header class="kopf">
+      <p class="eyebrow">Worum es geht</p>
+      <h2>Was Du aus dem Live-Webinar mitnimmst</h2>
+      <p class="lead">Drei Fragen, die in meinen Gesprächen mit Unternehmern immer wieder fallen. Wir klären sie gemeinsam:</p>
+    </header>
+    <ul class="punkte box" style="margin-top:2.5rem;font-size:1rem">
+      <li><b style="color:#fff">Was musst Du investieren?</b> Wie Du zu einer realistischen Aufwandsschätzung für Deine App kommst. Und warum Angebote so weit auseinanderliegen.</li>
+      <li><b style="color:#fff">Wie weit kommst Du mit KI allein?</b> Was KI&#8209;Tools heute für Dich herausholen. Und was Du mit dem anfängst, was Du schon gebaut hast.</li>
+      <li><b style="color:#fff">Wie erkennst Du einen guten Umsetzungspartner?</b> Woran Du vor dem ersten Euro erkennst, ob ein Anbieter liefert.</li>
+    </ul>
+    <p style="margin-top:2rem;font-size:1.125rem;font-weight:600;color:#fff">Dein Ergebnis: Du hast die eine Annahme aufgeschrieben, auf der Deine App&#8209;Idee steht. Und Du weißt, wie Du sie testest, bevor Du investierst.</p>
   </div>
 </section>
 
-<!-- 8 Ticket -->
-<section id="ticket" style="background:var(--bg2)">
+<!-- Ticket als Garantie-Block -->
+<section id="ticket" class="bg-900">
   <div class="wrap reveal">
-    <div class="ticket">
-      <div class="links">
-        <span class="badge"><i class="live"></i>Live-Webinar</span>
-        <h3 style="margin-top:14px">In 7&nbsp;Tagen klickst Du Dich durch Deine eigene App</h3>
+    <article class="box cyan ticket">
+      <div>
+        <span class="pill">Live-Webinar · kostenlos</span>
+        <h2>In 7&nbsp;Tagen klickst Du Dich durch Deine eigene App</h2>
         <dl>
           <dt>Datum</dt><dd data-ev="datumLang">Mittwoch, 2. Dezember 2026</dd>
           <dt>Uhrzeit</dt><dd><span data-ev="zeitText">11:00 Uhr</span> (Zürich, Berlin)</dd>
           <dt>Dauer</dt><dd data-ev="dauerText">60 Minuten plus Fragen</dd>
           <dt>Ort</dt><dd>Online, live. Zugangslink per E&#8209;Mail.</dd>
-          <dt>Preis</dt><dd>Kostenlos</dd>
+          <dt>Gastgeber</dt><dd>Martin Krutzfeld</dd>
         </dl>
       </div>
       <div class="rechts">
-        <div class="gastgeber-zeile" style="margin-top:0"><span class="avatar" aria-hidden="true">MK</span><span><b style="color:#fff">Martin Krutzfeld</b><br>Gastgeber</span></div>
-        <button class="btn" data-anmelden>Platz sichern<small>kostenlos · live</small></button>
-        <p class="cta-zeile" style="margin-top:0">Kein Spam. Nur der Zugangslink und eine Erinnerung.</p>
+        <p style="color:var(--cyan-50);font-size:1.125rem">Sichere Dir Deinen Platz. Kein Spam, nur der Zugangslink und eine Erinnerung.</p>
+        <button class="super" type="button" data-anmelden><span>Jetzt kostenlos anmelden</span></button>
       </div>
-    </div>
+    </article>
   </div>
 </section>
 
-<!-- 9 Für wen -->
+<!-- Für wen: Vergleich wie „Ohne uns / Mit uns“ -->
 <section id="fuer-wen">
   <div class="wrap reveal">
-    <div class="kopf"><span class="eyebrow">Für wen das hier ist</span>
-    <h2>Es ist für Dich gemacht, wenn …</h2></div>
-    <ul class="fuerwen">
-      <li><span class="ok">✓</span><span>… Du Unternehmer bist, 1 bis 10 Mitarbeiter hast und Dein Geschäft läuft.</span></li>
-      <li><span class="ok">✓</span><span data-zgt="fuerwen">… Du eine App&#8209;Idee im Kopf hast, vielleicht schon seit Jahren.</span></li>
-      <li><span class="ok">✓</span><span>… Du keine eigene IT im Haus hast.</span></li>
-      <li class="nicht"><span class="ok">✕</span><span>Nichts für Dich, wenn Du einen Mitgründer suchst, der für Anteile baut, oder noch kein laufendes Geschäft hast.</span></li>
-    </ul>
+    <header class="kopf">
+      <p class="eyebrow">Für wen</p>
+      <h2>Passt das Webinar zu Dir?</h2>
+    </header>
+    <div class="grid c2 vergleich" style="margin-top:3rem">
+      <article class="box r3 rose tilt" data-tilt>
+        <h3>Nichts für Dich, wenn …</h3>
+        <ul class="punkte rose">
+          <li>… Du einen Mitgründer suchst, der für Anteile baut.</li>
+          <li>… Du noch kein laufendes Geschäft hast.</li>
+          <li>… Du eine fertige App kaufen willst, ohne sie vorher zu sehen.</li>
+        </ul>
+      </article>
+      <article class="box r3 cyan tilt" data-tilt>
+        <h3>Für Dich gemacht, wenn …</h3>
+        <ul class="punkte">
+          <li>… Du Unternehmer bist, 1 bis 10 Mitarbeiter hast und Dein Geschäft läuft.</li>
+          <li data-zgt="fuerwen">… Du eine App&#8209;Idee im Kopf hast, vielleicht schon seit Jahren.</li>
+          <li>… Du keine eigene IT im Haus hast.</li>
+        </ul>
+      </article>
+    </div>
   </div>
 </section>
 
-<!-- 10 Gastgeber -->
-<section id="gastgeber" style="background:var(--bg2)">
-  <div class="wrap reveal gastgeber">
-    <div class="portrait">
-      <span class="avatar gross" aria-hidden="true">MK</span>
-      <div><div class="name">Martin Krutzfeld</div><div class="rolle">Gründer und Geschäftsführer, Krutzfeld Technologies GmbH, Zug</div></div>
-      <div class="fakten">
-        <div><b>14+</b><span>Jahre Softwareentwicklung, für Banken, MedTech&#8209;Firmen und KI&#8209;Projekte</span></div>
-        <div><b>115</b><span>Gespräche mit Unternehmern über ihre App&#8209;Idee</span></div>
-        <div><b>600</b><span>Stunden in meine eigene App gesteckt, bevor ein Kunde sie sah</span></div>
+<!-- Gastgeber wie „Warum wir?“ -->
+<section id="gastgeber" class="bg-900 gross">
+  <div class="wrap reveal founder">
+    <div class="links">
+      <div class="bildkarte">
+        <img src="assets/img/logo-bg-black.png" alt="Krutzfeld Technologies" width="640" height="360" loading="lazy" decoding="async">
+        <p class="name">Martin Krutzfeld</p>
+        <p class="rolle">Gründer und Geschäftsführer, Krutzfeld Technologies GmbH, Zug</p>
       </div>
     </div>
-    <div>
-      <span class="eyebrow">Dein Gastgeber</span>
-      <h2>Ich habe selbst in der <span class="hl">falschen Reihenfolge</span> gebaut.</h2>
-      <p class="lead" style="margin-top:18px">2023 hatte ich mit einem Geschäftspartner eine App&#8209;Idee, von der ich überzeugt war. Wir haben 600 Stunden gebaut, bevor ein Kunde die App gesehen hat. Beim ersten Verkaufsversuch ist sie gescheitert. „Ich kenne die Branche“ war eine Annahme. Mit Können hatte das nichts zu tun. Wir hatten in der falschen Reihenfolge gebaut.</p>
-      <p class="lead" style="margin-top:14px">Seitdem baue ich erst etwas zum Durchklicken. Für Unternehmer, die ihre App testen wollen, bevor sie sie bauen.</p>
-      <div class="cta-block"><button class="btn" data-anmelden>Kostenlos anmelden<small><span data-ev="datumKurz">Mi, 2. Dez. 2026</span> · <span data-ev="zeitText">11:00 Uhr</span> · live</small></button><p class="cta-zeile">Live erzähle ich, woran SmartRep wirklich gescheitert ist.</p></div>
+    <div class="rechts">
+      <p class="eyebrow">Dein Gastgeber</p>
+      <h2>Ich habe selbst in der falschen Reihenfolge gebaut.</h2>
+      <p>2023 hatte ich mit einem Geschäftspartner eine App&#8209;Idee, von der ich überzeugt war. Wir haben 600 Stunden gebaut, bevor ein Kunde die App gesehen hat. Beim ersten Verkaufsversuch ist sie gescheitert. „Ich kenne die Branche“ war eine Annahme.</p>
+      <p>Mit Können hatte das nichts zu tun. Wir hatten in der falschen Reihenfolge gebaut. Seitdem baue ich erst etwas zum Durchklicken.</p>
+      <ul class="punkte klein">
+        <li>Über 14 Jahre Softwareentwicklung, für Banken, MedTech&#8209;Firmen und KI&#8209;Projekte</li>
+        <li>115 Gespräche mit Unternehmern über ihre App&#8209;Idee</li>
+        <li>Kein Outsourcing, kein Freelancer-Chaos. Du bekommst eine App, keine Ausreden.</li>
+      </ul>
+      <div class="aktionen" style="padding-top:.5rem"><button class="super" type="button" data-anmelden><span>Kostenlos anmelden</span></button></div>
     </div>
   </div>
 </section>
 
-<!-- 11 Referenzen -->
+<!-- Referenzen wie auf der Website -->
 <section id="referenzen">
   <div class="wrap reveal">
-    <div class="kopf center"><span class="eyebrow">Mit wem ich arbeite</span>
-    <h2>Unternehmer, Mediziner, Handwerker.</h2></div>
-    <div class="grid c3" style="margin-top:36px">
-      <article class="card ref">
-        <span class="tag">Beratung und Entwicklung als CTO</span>
-        <div class="kopf"><img src="assets/img/christina-mendel.avif" alt="Christina Mendel" width="56" height="56" loading="lazy" decoding="async"><div><b>Christina Mendel</b><span>Marketing Expert, Entrepreneur, AI</span></div></div>
-        <p>Christina vereint Storytelling, Performance und Coaching. Als Entrepreneur hat sie unser Tech&#8209;Consulting genutzt, um verschiedene Projekte zu planen, aufzugleisen und gemeinsam umzusetzen.</p>
+    <header class="kopf">
+      <p class="eyebrow">Referenzen</p>
+      <h2>Mit wem ich arbeite</h2>
+      <p class="lead">Gerne stellen wir ein Gespräch her, damit Du Dir selbst ein Bild machen kannst.</p>
+    </header>
+    <div class="stack" style="margin-top:3rem;--gap:1.5rem">
+      <article class="box verlauf referenz tilt" data-tilt style="padding:1.5rem">
+        <div class="bild"><div class="bildrahmen"><img src="assets/img/christina-mendel.avif" alt="Christina Mendel" width="420" height="474" loading="lazy" decoding="async"></div></div>
+        <div class="text">
+          <p class="tag">Beratung und Entwicklung als CTO für EYUKO</p>
+          <div><h3>Christina Mendel</h3><p class="rolle">Marketing Expert, Entrepreneur, AI</p></div>
+          <p>Christina vereint Storytelling, Performance und Coaching. Als Entrepreneur hat sie unser Tech&#8209;Consulting genutzt, um verschiedene Projekte zu planen, aufzugleisen und gemeinsam umzusetzen.</p>
+          <div class="aktionen"><a class="cta sekundaer" href="https://www.christinamendel.com/" target="_blank" rel="noopener">Website</a></div>
+        </div>
       </article>
-      <article class="card ref">
-        <span class="tag">Beratung und Entwicklung MedTech</span>
-        <div class="kopf"><img src="assets/img/andre-plass.jpg" alt="Dr. André Plass" width="56" height="56" loading="lazy" decoding="async"><div><b>Dr. André Plass</b><span>Mediziner. Unternehmer. Erfinder.</span></div></div>
-        <p>André ist erfahrener Herzchirurg und erfolgreicher Unternehmer. Als Treiber von Innovation im Rettungswesen ist er immer am Puls der Zeit, ob KI, Software oder Hardwareentwicklung.</p>
+      <article class="box verlauf referenz umgekehrt tilt" data-tilt style="padding:1.5rem;margin-top:1.5rem">
+        <div class="bild"><div class="bildrahmen"><img src="assets/img/andre-plass.jpg" alt="Dr. André Plass" width="192" height="192" loading="lazy" decoding="async"></div></div>
+        <div class="text">
+          <p class="tag">Beratung und Entwicklung im Bereich MedTech</p>
+          <div><h3>Dr. André Plass</h3><p class="rolle">Mediziner. Unternehmer. Erfinder.</p></div>
+          <p>André ist erfahrener Herzchirurg und erfolgreicher Unternehmer. Als Treiber von Innovation im Rettungswesen ist er immer am Puls der Zeit, ob KI, Software oder Hardwareentwicklung.</p>
+          <div class="aktionen"><a class="cta sekundaer" href="https://www.linkedin.com/in/andr%C3%A9-plass-md-fects-53742441/" target="_blank" rel="noopener">LinkedIn</a></div>
+        </div>
       </article>
-      <article class="card ref">
-        <span class="tag">KMU, Handwerk</span>
-        <div class="kopf"><img src="assets/img/holling.webp" alt="Holling Services GmbH" width="56" height="56" loading="lazy" decoding="async"><div><b>Holling Services GmbH</b><span>Geschäftsführer Holger Holling</span></div></div>
-        <p>Holger führt ein KMU aus dem Handwerk. Mit unserem kleinen Prototyp konnte er einen großen Investor gewinnen und sein bestehendes Geschäft digitalisieren.</p>
+      <article class="box verlauf referenz tilt" data-tilt style="padding:1.5rem;margin-top:1.5rem">
+        <div class="bild"><div class="bildrahmen"><img src="assets/img/holling.png" alt="Holling Services GmbH" width="400" height="400" loading="lazy" decoding="async"></div></div>
+        <div class="text">
+          <p class="tag">KMU, Handwerk</p>
+          <div><h3>Holling Services GmbH</h3><p class="rolle">Geschäftsführer Holger Holling</p></div>
+          <p>Holger führt ein KMU aus dem Handwerk. Mit unserem kleinen Prototyp konnte er einen großen Investor gewinnen und sein bestehendes Geschäft digitalisieren.</p>
+          <div class="aktionen"><a class="cta sekundaer" href="https://www.hollingservice.ch/" target="_blank" rel="noopener">Website</a></div>
+        </div>
       </article>
     </div>
-    <p class="hinweis">Referenzen von krutzfeld.tech. Gerne stellen wir ein Gespräch her, damit Du Dir selbst ein Bild machen kannst.</p>
   </div>
 </section>
 
-<!-- 12 Live dabei -->
-<section id="live" style="background:var(--bg2)">
+<!-- Warum live, im Stil „Vorteile“ -->
+<section id="live" class="bg-900">
   <div class="wrap reveal">
-    <div class="kopf center"><span class="eyebrow">Warum live</span>
-    <h2>Anmelden reicht nicht. <span class="hl">Komm live.</span></h2></div>
-    <div class="grid c2 live-karten" style="margin-top:36px">
-      <article class="card"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v10H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg></span><h3>Deine Frage, live beantwortet</h3><p style="margin-top:12px">Du stellst Deine Frage im Chat, ich beantworte sie im Webinar. In einer Aufzeichnung geht das nicht.</p></article>
-      <article class="card"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4"/><path d="M5 12v8h14v-8M12 8v12"/><path d="M12 8c-2-3-6-3-6-1s4 1 6 1zm0 0c2-3 6-3 6-1s-4 1-6 1z"/></svg></span><h3>Obendrauf: Dein Automatisierungs&#8209;Check</h3><p style="margin-top:12px">Wer sich im Webinar das kostenlose Erstgespräch bucht, bekommt den Automatisierungs&#8209;Check dazu: Wir nehmen einen aufwändigen Prozess in Deinem Betrieb auseinander und zeigen Dir, was wir wegautomatisieren können.</p></article>
+    <header class="kopf">
+      <p class="eyebrow">Warum live</p>
+      <h2>Anmelden reicht nicht. Komm live.</h2>
+    </header>
+    <div class="grid c2" style="margin-top:3rem">
+      <article class="box r3 schatten tilt" data-tilt>
+        <h3>Deine Frage, live beantwortet</h3>
+        <p style="margin-top:.75rem;font-size:.9375rem;color:var(--slate-300)">Du stellst Deine Frage im Chat, ich beantworte sie im Webinar. In einer Aufzeichnung geht das nicht.</p>
+      </article>
+      <article class="box r3 schatten tilt" data-tilt>
+        <h3>Obendrauf: Dein Automatisierungs&#8209;Check</h3>
+        <p style="margin-top:.75rem;font-size:.9375rem;color:var(--slate-300)">Wer sich im Webinar das kostenlose Erstgespräch bucht, bekommt den Automatisierungs&#8209;Check dazu: Wir nehmen einen aufwändigen Prozess in Deinem Betrieb auseinander und zeigen Dir, was wir wegautomatisieren können.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- 13 FAQ -->
+<!-- FAQ wie die Website -->
 <section id="faq">
   <div class="wrap reveal">
-    <div class="center"><span class="eyebrow">Fragen</span><h2>Was Du vorher wissen willst</h2></div>
+    <header class="kopf">
+      <p class="eyebrow">FAQ</p>
+      <h2>Häufige Fragen</h2>
+      <p class="lead">Die wichtigsten Antworten auf einen Blick.</p>
+    </header>
     <div class="faq">
-      <details><summary>Was kostet das Webinar?</summary><p>Nichts. Es ist kostenlos und live. Verkauft wird im Webinar keine App. Am Ende zeige ich Dir, wie wir arbeiten und wie Du ein Erstgespräch buchst, wenn Du willst.</p></details>
-      <details><summary>Gibt es eine Aufzeichnung?</summary><p>Die Aufzeichnung bekommen nur Angemeldete. Live lohnt sich trotzdem: Nur dort kannst Du Deine Frage stellen und bekommst sie direkt beantwortet.</p></details>
-      <details><summary>Für wen ist das Webinar?</summary><p>Für Unternehmer mit 1 bis 10 Mitarbeitern, die eine App&#8209;Idee im Kopf haben und keine eigene IT im Haus. Nichts für Dich, wenn Du einen Mitgründer suchst, der für Anteile baut.</p></details>
-      <details><summary>Muss ich meine Idee preisgeben?</summary><p>Nein. Im Webinar reicht Zuhören. Wenn Du danach ein Erstgespräch willst, unterschreiben wir vorab eine Geheimhaltungsvereinbarung.</p></details>
-      <details><summary>Welche Technik brauche ich?</summary><p>Einen Browser und Internet. Den Zugangslink bekommst Du nach der Anmeldung per E&#8209;Mail, dazu eine Erinnerung vor dem Termin.</p></details>
-      <details><summary>Was passiert nach dem Webinar?</summary><p>Wenn Du willst, buchst Du ein kostenloses Erstgespräch. Es dauert 25 Minuten. Danach weißt Du, ob Deine App&#8209;Idee Sinn ergibt und womit Du anfangen solltest. Notfalls bekommst Du ein ehrliches Nein.</p></details>
+      <article><h3>Was kostet das Webinar?</h3><p>Nichts. Es ist kostenlos und live. Verkauft wird im Webinar keine App. Am Ende zeige ich Dir, wie wir arbeiten und wie Du ein Erstgespräch buchst, wenn Du willst.</p></article>
+      <article><h3>Gibt es eine Aufzeichnung?</h3><p>Die Aufzeichnung bekommen nur Angemeldete. Live lohnt sich trotzdem: Nur dort kannst Du Deine Frage stellen und bekommst sie direkt beantwortet.</p></article>
+      <article><h3>Für wen ist das Webinar?</h3><p>Für Unternehmer mit 1 bis 10 Mitarbeitern, die eine App&#8209;Idee im Kopf haben und keine eigene IT im Haus. Nichts für Dich, wenn Du einen Mitgründer suchst, der für Anteile baut.</p></article>
+      <article><h3>Muss ich meine Idee preisgeben?</h3><p>Nein. Im Webinar reicht Zuhören. Wenn Du danach ein Erstgespräch willst, unterschreiben wir vorab eine Geheimhaltungsvereinbarung.</p></article>
+      <article><h3>Welche Technik brauche ich?</h3><p>Einen Browser und Internet. Den Zugangslink bekommst Du nach der Anmeldung per E&#8209;Mail, dazu eine Erinnerung vor dem Termin.</p></article>
+      <article><h3>Was passiert nach dem Webinar?</h3><p>Wenn Du willst, buchst Du ein kostenloses Erstgespräch. Es dauert 25 Minuten. Danach weißt Du, ob Deine App&#8209;Idee Sinn ergibt und womit Du anfangen solltest. Notfalls bekommst Du ein ehrliches Nein.</p></article>
     </div>
   </div>
 </section>
 
-<!-- Schluss -->
-<section class="schluss center">
-  <div class="wrap reveal">
-    <span class="eyebrow">Letzter Schritt</span>
-    <h2>Teste Deine App, <span class="hl">bevor Du sie baust</span>.</h2>
-    <p class="lead" style="margin-top:16px">Live am <span data-ev="datumLang">Mittwoch, 2. Dezember 2026</span> um <span data-ev="zeitText">11:00 Uhr</span>. Kostenlos.</p>
-    <div class="cta-block"><button class="btn" data-anmelden>Kostenlos anmelden<small><span data-ev="datumKurz">Mi, 2. Dez. 2026</span> · <span data-ev="zeitText">11:00 Uhr</span> · live</small></button><p class="cta-zeile">Kein Spam. Nur der Zugangslink und eine Erinnerung.</p></div>
+<!-- Schluss wie „Jetzt starten“ -->
+<section id="schluss" class="bg-900 gross">
+  <div class="wrap reveal motto">
+    <div class="stack">
+      <p class="eyebrow weit">Jetzt anmelden</p>
+      <p class="statement">Teste Deine App, bevor Du sie baust.</p>
+      <p class="lead">Du hast ein Business. Du hast eine App&#8209;Idee. Bevor Du 5&#8209;stellig investierst, findest Du im Live-Webinar die eine Annahme, auf der sie steht.</p>
+      <p class="muted">Live am <span data-ev="datumLang">Mittwoch, 2. Dezember 2026</span> um <span data-ev="zeitText">11:00 Uhr</span>. Kostenlos. Kein Spam, nur der Zugangslink und eine Erinnerung.</p>
+      <div style="padding-top:.5rem"><button class="super" type="button" data-anmelden><span>Jetzt kostenlos anmelden</span></button></div>
+    </div>
+    <div class="visual" aria-hidden="true">
+      <div class="glowfeld"></div>
+      <div class="inhalt" style="padding:2.5rem 1.5rem"><img src="assets/img/logo-wordmark.png" alt="" width="480" height="174" loading="lazy" decoding="async" style="width:min(260px,70%)"></div>
+      <div class="caption"><span><b data-ev="datumKurz">Mi, 2. Dez. 2026</b> · <span data-ev="zeitText">11:00 Uhr</span></span><span class="pill rand">Live</span></div>
+    </div>
   </div>
 </section>
 
@@ -291,45 +396,46 @@
 
 <footer>
   <div class="wrap">
-    <div><img class="logo" src="assets/img/logo-wordmark.png" alt="" width="480" height="174" loading="lazy" decoding="async"><br>Krutzfeld Technologies GmbH · Bahnhofstrasse 7 · 6300 Zug</div>
-    <div><a href="https://krutzfeld.tech/impressum" rel="noopener">Impressum</a> &nbsp;·&nbsp; <a href="https://krutzfeld.tech/datenschutz" rel="noopener">Datenschutz</a></div>
+    <div><p class="firma">Krutzfeld Technologies GmbH</p><p class="claim">Innovation. Umsetzung. Langfristige Partnerschaft.</p><p class="claim">Bahnhofstrasse 7 · 6300 Zug</p></div>
+    <nav><a href="https://krutzfeld.tech/impressum" rel="noopener">Impressum</a><a href="https://krutzfeld.tech/datenschutz" rel="noopener">Datenschutzerklärung</a></nav>
   </div>
+  <p class="wrap copy">© 2026 Krutzfeld Technologies GmbH. Alle Rechte vorbehalten.</p>
 </footer>
 
-<div class="sticky-cta" data-sticky aria-hidden="true"><div class="t"><b>Live-Webinar, kostenlos</b><span data-ev="datumKurz">Mi, 2. Dez. 2026</span> · <span data-ev="zeitText">11:00 Uhr</span></div><button class="btn" data-anmelden tabindex="-1">Platz sichern</button></div>
+<div class="sticky-cta" data-sticky aria-hidden="true"><div class="t"><b>Live-Webinar, kostenlos</b><span data-ev="datumKurz">Mi, 2. Dez. 2026</span> · <span data-ev="zeitText">11:00 Uhr</span></div><button class="cta primaer" type="button" data-anmelden tabindex="-1">Platz sichern</button></div>
 
 <!-- Popup: Weiche + Anmeldung -->
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="pop-titel" hidden>
   <div class="pop">
-    <button class="schliessen" type="button" aria-label="Schließen" data-schliessen>×</button>
+    <button class="schliessen" type="button" aria-label="Schließen" data-schliessen><svg class="i"><use href="#i-x"/></svg></button>
 
     <div data-schritt="weiche">
-      <span class="badge pop-badge" data-pop-badge>Kurze Frage vorab</span>
-      <h3 id="pop-titel" style="margin-top:12px">Was beschreibt Dich am besten?</h3>
-      <div class="kacheln" style="margin-top:14px">
-        <button class="kachel" type="button" data-zg="angebote"><span class="ico">📄</span><span>Ich habe Angebote auf dem Tisch<small>und kann sie nicht vergleichen</small></span></button>
-        <button class="kachel" type="button" data-zg="ki"><span class="ico">🤖</span><span>Ich habe selbst mit KI gebaut<small>und hänge bei 80 Prozent</small></span></button>
-        <button class="kachel" type="button" data-zg="gebrannt"><span class="ico">⚠️</span><span>Ich bin schon an Entwickler geraten<small>und habe dabei Geld verloren</small></span></button>
-        <button class="kachel" type="button" data-zg="idee"><span class="ico">💡</span><span>Die Idee ist noch im Kopf<small>oder etwas anderes</small></span></button>
+      <span class="pill" data-pop-badge>Kurze Frage vorab</span>
+      <h3 id="pop-titel" style="margin-top:.75rem">Was beschreibt Dich am besten?</h3>
+      <div class="kacheln" style="margin-top:1rem">
+        <button class="kachel" type="button" data-zg="angebote">Ich habe Angebote auf dem Tisch<small>und kann sie nicht vergleichen</small></button>
+        <button class="kachel" type="button" data-zg="ki">Ich habe selbst mit KI gebaut<small>und hänge bei 80 Prozent</small></button>
+        <button class="kachel" type="button" data-zg="gebrannt">Ich bin schon an Entwickler geraten<small>und habe dabei Geld verloren</small></button>
+        <button class="kachel" type="button" data-zg="idee">Die Idee ist noch im Kopf<small>oder etwas anderes</small></button>
       </div>
     </div>
 
     <div data-schritt="formular" hidden>
-      <span class="badge pop-badge"><i class="live"></i>Live-Webinar</span>
-      <h3 style="margin-top:12px">Sichere Dir Deinen Platz</h3>
-      <div class="ticket-mini"><b data-ev="datumLang">Mittwoch, 2. Dezember 2026</b><span data-ev="zeitText">11:00 Uhr</span><span>live · kostenlos</span><span>mit Martin Krutzfeld</span></div>
-      <ul class="haken" style="margin-top:12px">
-        <li>Du findest die eine Annahme, auf der Deine App&#8209;Idee steht.</li>
-        <li>Du weißt, welchem Preis Du glauben kannst.</li>
-        <li>Du erkennst vor dem ersten Euro, ob ein Anbieter liefert.</li>
+      <span class="pill">Live-Webinar · kostenlos</span>
+      <h3 style="margin-top:.75rem">Sichere Dir Deinen Platz</h3>
+      <div class="termin"><b data-ev="datumLang">Mittwoch, 2. Dezember 2026</b><span data-ev="zeitText">11:00 Uhr</span><span>mit Martin Krutzfeld</span></div>
+      <ul class="haken" style="padding:0">
+        <li style="padding:0"><svg class="i"><use href="#i-check"/></svg><span>Du findest die eine Annahme, auf der Deine App&#8209;Idee steht.</span></li>
+        <li style="padding:0"><svg class="i"><use href="#i-check"/></svg><span>Du weißt, welchem Preis Du glauben kannst.</span></li>
+        <li style="padding:0"><svg class="i"><use href="#i-check"/></svg><span>Du erkennst vor dem ersten Euro, ob ein Anbieter liefert.</span></li>
       </ul>
-      <form id="anmeldung" novalidate style="margin-top:12px">
+      <form id="anmeldung" novalidate>
         <label>Vorname<input type="text" name="vorname" autocomplete="given-name" required placeholder="Dein Vorname"></label>
         <label>E&#8209;Mail<input type="email" name="email" autocomplete="email" required placeholder="name@firma.ch"></label>
         <input type="hidden" name="zielgruppe" value="">
         <p class="fehler" data-fehler>Bitte Vorname und eine gültige E&#8209;Mail-Adresse eintragen.</p>
-        <button class="btn pop-btn" type="submit">Platz sichern<small>kostenlos · live</small></button>
-        <p class="klein-zeile">Kostenlos · Live · Kein Spam</p>
+        <button class="super" type="submit"><span>Platz sichern</span></button>
+        <p class="klein">Kostenlos · Live · Kein Spam</p>
       </form>
     </div>
   </div>
