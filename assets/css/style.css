@@ -94,7 +94,7 @@ body.vorschau-modus .vorschau{display:block}
 .schwebt.ok .ico{background:rgba(103,232,249,.14);color:var(--cyan);border:1px solid rgba(103,232,249,.35)}
 .schwebt b{display:block;color:#fff;font-size:14px}
 .schwebt span{font-size:14px;color:var(--s4)}
-.schwebt.kipp{right:-6px;top:34%}
+.schwebt.kipp{right:-6px;top:54%}
 .schwebt.ok{left:-6px;bottom:22%}
 .schwebt.tag7{left:50%;top:0;transform:translateX(-50%);max-width:none;white-space:nowrap;padding:8px 14px;border-color:rgba(103,232,249,.35);background:rgba(2,6,23,.95)}
 .schwebt.tag7 b{display:inline;color:var(--cyan)}
@@ -360,3 +360,4 @@ textarea:focus{outline:2px solid var(--cyan);outline-offset:1px}
 }
 
 @media(max-width:560px){.leiter li.verdeckt::after{content:'Live';right:12px}.leiter li.verdeckt span.t{max-width:calc(100% - 70px)}.sprung-label{left:42px;font-size:14px}}
+@media(max-width:959px){.phone{aspect-ratio:9/15}}
