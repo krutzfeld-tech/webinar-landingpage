@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Du bist dabei · Live-Webinar</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="assets/js/config.js" defer></script>
+<script src="assets/js/danke.js" defer></script>
+</head>
+<body>
+<div class="vorschau" role="status">Vorschau: Anmeldungen werden nicht gespeichert.</div>
+<header class="topbar"><div class="wrap">
+  <a href="index.html" aria-label="Krutzfeld Technologies"><img class="logo" src="assets/img/logo-wordmark.png" alt="Krutzfeld Technologies" width="480" height="174"></a>
+  <div class="termin"><span class="badge"><i class="live"></i>Live-Webinar</span><span><b data-ev="datumKurz">Mi, 2. Dez. 2026</b> · <b data-ev="zeitText">11:00 Uhr</b></span></div>
+</div></header>
+<main>
+<section class="hero" style="padding-top:64px">
+  <div class="wrap">
+    <span class="eyebrow">Anmeldung bestätigt</span>
+    <h1 style="font-size:clamp(32px,5vw,54px)">Du bist dabei<span data-vorname-komma></span>.</h1>
+    <p class="lead">Den Zugangslink bekommst Du per E&#8209;Mail<span data-email-hinweis></span>. Drei kleine Schritte, damit Du am <span data-ev="datumLang">Mittwoch, 2. Dezember 2026</span> um <span data-ev="zeitText">11:00 Uhr</span> auch wirklich dabei bist:</p>
+    <div class="fortschritt" aria-hidden="true"><i class="voll"></i><i data-f="kalender"></i><i data-f="frage"></i><i data-f="gespraech"></i></div>
+    <ol class="schritte-liste">
+      <li class="erledigt"><span class="s">✓</span><div><h3>Angemeldet</h3><p class="muted">Dein Platz ist reserviert. Schau in Dein Postfach, auch in den Spam-Ordner.</p></div></li>
+      <li data-schritt="kalender"><span class="s">2</span><div><h3>Termin in den Kalender</h3><p class="muted">Ein Klick, und der Termin steht drin. Dann vergisst Du ihn nicht.</p>
+        <div class="aktionen"><a class="btn klein" data-kalender="google" href="#" target="_blank" rel="noopener">Google Kalender</a><a class="btn klein sekundaer" data-kalender="ics" href="#" download="webinar-krutzfeld.ics">Apple, Outlook (ICS)</a><a class="btn klein sekundaer" data-kalender="addevent" href="#" target="_blank" rel="noopener">Weitere Kalender</a></div></div></li>
+      <li data-schritt="frage"><span class="s">3</span><div><h3>Deine Frage vorab</h3><p class="muted">Was willst Du im Webinar unbedingt beantwortet haben? Ich nehme sie in die Vorbereitung.</p>
+        <form data-frage-form style="margin-top:12px;display:grid;gap:10px"><label class="sr-only" for="frage">Deine Frage</label><textarea id="frage" name="frage" placeholder="Zum Beispiel: Wie finde ich heraus, ob meine Kunden die App überhaupt nutzen würden?"></textarea><div><button class="btn klein" type="submit">Frage senden</button></div><p class="muted" data-frage-ok hidden>Danke, Deine Frage ist angekommen.</p></form></div></li>
+      <li data-schritt="gespraech"><span class="s">4</span><div><h3>Du willst nicht bis Dezember warten?</h3><p class="muted">Dann buch Dir jetzt das kostenlose Erstgespräch, 25 Minuten. Martin sagt Dir, ob Deine App&#8209;Idee Sinn ergibt. Notfalls ein ehrliches Nein.</p>
+        <div class="aktionen"><a class="btn klein sekundaer" data-link="erstgespraech" href="#" target="_blank" rel="noopener">Erstgespräch buchen</a></div></div></li>
+    </ol>
+  </div>
+</section>
+</main>
+<footer><div class="wrap"><div>Krutzfeld Technologies GmbH · Bahnhofstrasse 7 · 6300 Zug</div><div><a href="https://krutzfeld.tech/impressum" rel="noopener">Impressum</a> &nbsp;·&nbsp; <a href="https://krutzfeld.tech/datenschutz" rel="noopener">Datenschutz</a></div></div></footer>
+</body>
+</html>
