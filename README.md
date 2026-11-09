@@ -57,6 +57,16 @@ Gesetzt ist der von Martin abgenommene Webinar-Titel (Deck Folie 1, WebinarJam, 
 
 Screenshots je Iteration: `qa/iter0` (vorher) bis `qa/iter3`.
 
+## Deploy
+
+Render Static Site `webinar-landingpage` (https://webinar-landingpage-hwlt.onrender.com, Dienst srv-dbonuuijnfac73fgs4s0). **Ein Push löst keinen Deploy aus**, weil die GitHub-Organisation keine Render-GitHub-App hat (das Repo wurde deshalb öffentlich geschaltet). Nach jedem Push den Deploy per API anstoßen:
+
+```
+curl -X POST -H "Authorization: Bearer $RENDER_API_KEY" -H "Content-Type: application/json" -d '{"clearCache":"do_not_clear"}' https://api.render.com/v1/services/srv-dbonuuijnfac73fgs4s0/deploys
+```
+
+Oder im Render-Dashboard „Manual Deploy“. Sobald Martin die Render-GitHub-App mit der Organisation verbindet, deployt Render automatisch und das Repo kann wieder privat werden.
+
 ## Prüfen
 
 Lokal: `python3 -m http.server 8080` im Repo-Ordner, dann http://localhost:8080. Screenshots 390 px und 1440 px plus Lighthouse liegen im Ordner `qa/` (nicht versioniert).
