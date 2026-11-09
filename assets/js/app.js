@@ -123,6 +123,12 @@
     letzterY = y;
   }, { passive: true });
 
+  /* Sticky-CTA auf dem Handy: erscheint, sobald der Hero-Button aus dem Bild ist */
+  var sticky = $('[data-sticky]'), heroBtn = $('.hero [data-anmelden]');
+  if (sticky && heroBtn && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (en) { var raus = !en[0].isIntersecting && en[0].boundingClientRect.top < 0; sticky.classList.toggle('zeigen', raus); sticky.setAttribute('aria-hidden', raus ? 'false' : 'true'); $('button', sticky).tabIndex = raus ? 0 : -1; }).observe(heroBtn);
+  }
+
   /* Reveal-Animationen */
   var reduziert = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var reveals = $$('.reveal');
