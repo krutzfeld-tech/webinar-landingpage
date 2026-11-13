@@ -3,7 +3,7 @@
   'use strict';
   var LP = window.LP || {};
   var EV = LP.event || {};
-  var KEY_ZG = 'tsb_zg', KEY_REG = 'tsb_registriert', KEY_EXIT = 'tsb_exit';
+  var KEY_ZG = 'tsb_zg', KEY_REG = 'tsb_registriert', KEY_EXIT = 'tsb_exit', KEY_WEICHE = 'tsb_weiche';
   var store = {
     get: function (k, s) { try { return (s ? sessionStorage : localStorage).getItem(k); } catch (e) { return null; } },
     set: function (k, v, s) { try { (s ? sessionStorage : localStorage).setItem(k, v); } catch (e) {} }
@@ -35,28 +35,38 @@
 
   /* Popup */
   var modal = $('#modal'), schrittWeiche = $('[data-schritt=weiche]'), schrittForm = $('[data-schritt=formular]');
-  var badge = $('[data-pop-badge]'), letzterFokus = null;
+  var letzterFokus = null;
+  /* 'erstbesuch' = Weiche beim Laden (danach zurück zur Seite), 'anmelden' = über einen CTA (danach Formular) */
+  var modus = 'anmelden';
   function zeigeSchritt(name) {
     if (schrittWeiche) schrittWeiche.hidden = name !== 'weiche';
     if (schrittForm) schrittForm.hidden = name !== 'formular';
   }
+  /* Weiche nur beim ersten Besuch. Buttons und Exit-Intent öffnen immer direkt das Formular. */
+  var formPill = $('[data-form-pill]'), formTitel = $('[data-form-titel]');
   function oeffnen(opts) {
     opts = opts || {};
     if (!modal) return;
     letzterFokus = document.activeElement;
-    var seg = store.get(KEY_ZG);
-    if (badge) badge.textContent = opts.badge || 'Kurze Frage vorab';
-    zeigeSchritt(seg ? 'formular' : 'weiche');
+    modus = opts.modus || 'anmelden';
+    var weiche = modus === 'erstbesuch';
+    var formUnter = $('[data-form-unter]');
+    if (formPill) formPill.textContent = modus === 'exit' ? 'Bevor Du gehst' : 'Kostenfreies Live-Webinar';
+    if (formTitel) formTitel.textContent = modus === 'exit' ? 'Willst Du Deine App\u2011Idee anklicken, bevor Du zahlst?' : 'In 7\u00a0Tagen klickst Du Dich durch Deine App\u2011Idee.';
+    if (formUnter) formUnter.textContent = modus === 'exit' ? 'Dann komm live dazu. Ich zeige Dir, wie das in 7\u00a0Tagen geht, ohne vorab 5\u2011stellig zu investieren.' : 'Live zeige ich Dir, wie Du die eine Annahme hinter Deiner Idee findest und testest, bevor Du 5\u2011stellig zahlst.';
+    zeigeSchritt(weiche ? 'weiche' : 'formular');
+    modal.classList.toggle('ist-weiche', weiche);
     modal.hidden = false; modal.classList.add('offen'); document.body.classList.add('popup-offen');
-    var f = seg ? $('#anmeldung input[name=vorname]') : $('.kachel', modal);
-    if (f) setTimeout(function () { f.focus(); }, 50);
+    var f = weiche ? $('.kachel', modal) : $('#anmeldung input[name=vorname]');
+    if (f) setTimeout(function () { f.focus({ preventScroll: true }); }, 60);
   }
   function schliessen() {
     if (!modal) return;
     modal.classList.remove('offen'); modal.hidden = true; document.body.classList.remove('popup-offen');
+    store.set(KEY_WEICHE, '1');
     if (letzterFokus && letzterFokus.focus) letzterFokus.focus();
   }
-  $$('[data-anmelden]').forEach(function (b) { b.addEventListener('click', function () { oeffnen({ badge: 'Kurze Frage vorab' }); }); });
+  $$('[data-anmelden]').forEach(function (b) { b.addEventListener('click', function () { oeffnen({ modus: 'anmelden' }); }); });
   $$('[data-schliessen]').forEach(function (b) { b.addEventListener('click', schliessen); });
   if (modal) modal.addEventListener('click', function (e) { if (e.target === modal) schliessen(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal && !modal.hidden) schliessen(); });
@@ -67,6 +77,7 @@
       var seg = k.getAttribute('data-zg');
       store.set(KEY_ZG, seg); personalisieren(seg);
       $$('.kachel').forEach(function (x) { x.classList.toggle('aktiv', x === k); });
+      if (modus === 'erstbesuch') { schliessen(); return; }
       zeigeSchritt('formular');
       var f = $('#anmeldung input[name=vorname]'); if (f) setTimeout(function () { f.focus(); }, 50);
     });
@@ -74,8 +85,8 @@
 
   /* Weiche beim ersten Besuch (nicht für Angemeldete, nicht bei ?zg=) */
   var registriert = store.get(KEY_REG) === '1';
-  if (!zg && !registriert && !params.has('zg') && !params.has('ohne-weiche')) {
-    setTimeout(function () { oeffnen({ badge: 'Kurze Frage vorab' }); }, 900);
+  if (!zg && !registriert && store.get(KEY_WEICHE) !== '1' && !params.has('zg') && !params.has('ohne-weiche')) {
+    setTimeout(function () { oeffnen({ modus: 'erstbesuch' }); }, 900);
   }
 
   /* Anmeldung */
@@ -109,10 +120,9 @@
   function exitIntent() {
     if (registriert || store.get(KEY_EXIT, true) === '1') return;
     if (Date.now() - start < 20000) return;
-    if (!store.get(KEY_ZG)) return;
     if (modal && !modal.hidden) return;
     store.set(KEY_EXIT, '1', true);
-    oeffnen({ badge: 'Kurze Frage, bevor Du gehst' });
+    oeffnen({ modus: 'exit' });
   }
   document.addEventListener('mouseout', function (e) { if (!e.relatedTarget && e.clientY <= 0) exitIntent(); });
   var maxScroll = 0, letzterY = 0;
@@ -163,18 +173,77 @@
     var a = $('[data-stufe="1"]', leiter), z = $('[data-stufe="6"]', leiter), svg = $('svg.sprung', leiter), lbl = $('.sprung-label', leiter);
     if (!a || !z || !svg) return;
     var lr = leiter.getBoundingClientRect(), ar = a.getBoundingClientRect(), zr = z.getBoundingClientRect();
-    var x = 16; // Mitte der Stufen-Kästchen (17.6px Innenabstand + 16px halbe Breite)
-    var x1 = ar.left - lr.left + 17.6 + x, y1 = ar.top - lr.top + ar.height;
-    var x2 = zr.left - lr.left + 17.6 + x, y2 = zr.top - lr.top - 4;
-    var bog = Math.min(Math.max(60, (y2 - y1) * 0.35), Math.max(12, x1 - 8));
-    var cx = x1 - bog;
+    /* Klammer-Pfeil links außen: aus der Mitte von Stufe 1 raus, runter, mit Spitze in die Mitte von Stufe 6 */
+    var xa = ar.left - lr.left - 4, y1 = ar.top - lr.top + ar.height / 2, y2 = zr.top - lr.top + zr.height / 2;
+    var xg = xa - 22, r = 12;
     svg.setAttribute('viewBox', '0 0 ' + lr.width + ' ' + lr.height);
-    $('path', svg).setAttribute('d', 'M ' + x1 + ' ' + y1 + ' C ' + cx + ' ' + (y1 + 40) + ', ' + cx + ' ' + (y2 - 40) + ', ' + x2 + ' ' + y2);
-    $('.spitze', svg).setAttribute('points', (x2 - 7) + ',' + (y2 - 12) + ' ' + (x2 + 7) + ',' + (y2 - 12) + ' ' + x2 + ',' + (y2 + 1));
-    if (lbl) { lbl.style.top = ((y1 + y2) / 2 - 14) + 'px'; }
+    $('path', svg).setAttribute('d', 'M ' + xa + ' ' + y1 + ' H ' + (xg + r) + ' Q ' + xg + ' ' + y1 + ' ' + xg + ' ' + (y1 + r) + ' V ' + (y2 - r) + ' Q ' + xg + ' ' + y2 + ' ' + (xg + r) + ' ' + y2 + ' H ' + (xa - 9));
+    $('.spitze', svg).setAttribute('points', (xa - 11) + ',' + (y2 - 6) + ' ' + (xa - 11) + ',' + (y2 + 6) + ' ' + (xa - 1) + ',' + y2);
+    if (lbl) { lbl.style.top = ((y1 + y2) / 2 - lbl.offsetHeight / 2) + 'px'; lbl.style.left = '50%'; lbl.style.transform = 'translateX(-50%)'; }
   }
   pfeilZeichnen();
   window.addEventListener('resize', pfeilZeichnen);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(pfeilZeichnen);
   window.addEventListener('load', pfeilZeichnen);
+})();
+
+/* Zahlen hochzählen, sobald sie sichtbar sind */
+(function () {
+  var els = [].slice.call(document.querySelectorAll('[data-zaehle]'));
+  if (!els.length || !('IntersectionObserver' in window)) return;
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  els.forEach(function (e) { e.textContent = '0'; });
+  var io = new IntersectionObserver(function (en) {
+    en.forEach(function (x) {
+      if (!x.isIntersecting) return; io.unobserve(x.target);
+      var el = x.target, ziel = +el.getAttribute('data-zaehle'), t0 = null, d = 1400;
+      function f(t) { if (!t0) t0 = t; var k = Math.min(1, (t - t0) / d); el.textContent = Math.round(ziel * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(f); }
+      requestAnimationFrame(f);
+    });
+  }, { threshold: .6 });
+  els.forEach(function (e) { io.observe(e); });
+})();
+
+/* Insel unten: Botschaften im Wechsel, Tage bis zum Start, mobil erst nach dem ersten Scrollen */
+(function () {
+  var ins = document.getElementById('insel'); if (!ins) return;
+  var box = ins.querySelector('.insel-text'), t = document.getElementById('insel-tage');
+  try {
+    var heute = new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Zurich' }).format(new Date());
+    var tage = Math.round((Date.parse('2026-12-02T00:00:00Z') - Date.parse(heute + 'T00:00:00Z')) / 86400000);
+    if (t) { if (tage > 1) t.textContent = 'Start in ' + tage + ' Tagen'; else if (tage === 1) t.textContent = 'Morgen um 11 Uhr'; else if (tage === 0) t.textContent = 'Heute um 11 Uhr'; }
+  } catch (e) {}
+  function an() { if (window.scrollY > 12) { ins.classList.add('da'); var ib = ins.querySelector('.insel-btn'); if (ib) setTimeout(function(){ ib.classList.add('ring-los'); }, 400); removeEventListener('scroll', an); } }
+  addEventListener('scroll', an, { passive: true }); an();
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var els = box.querySelectorAll(':scope > span'), i = 0;
+  setInterval(function () {
+    var alt = els[i]; i = (i + 1) % els.length; var neu = els[i];
+    alt.classList.remove('aktiv'); alt.classList.add('raus');
+    neu.classList.remove('raus'); neu.classList.add('aktiv');
+    setTimeout(function () { alt.classList.remove('raus'); }, 600);
+  }, 2600);
+})();
+
+/* Countdown im Ticket */
+(function () {
+  var box = document.querySelector('[data-countdown]'); if (!box) return;
+  var ziel = Date.parse(box.getAttribute('data-countdown'));
+  var f = function (k) { return box.querySelector('[data-cd="' + k + '"]'); };
+  var T = f('t'), S = f('s'), M = f('m'), X = f('x');
+  var z = function (n) { return (n < 10 ? '0' : '') + n; };
+  function tick() {
+    var d = Math.max(0, ziel - Date.now()), s = Math.floor(d / 1000);
+    T.textContent = z(Math.floor(s / 86400)); S.textContent = z(Math.floor(s % 86400 / 3600));
+    M.textContent = z(Math.floor(s % 3600 / 60)); X.textContent = z(s % 60);
+  }
+  tick(); setInterval(tick, 1000);
+})();
+
+/* Button-Ring: einmal abspielen, sobald der Button im Bild ist */
+(function () {
+  var btns = [].slice.call(document.querySelectorAll('.super, .btn-weiss'));
+  if (!('IntersectionObserver' in window)) { btns.forEach(function (b) { b.classList.add('ring-los'); }); return; }
+  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('ring-los'); io.unobserve(e.target); } }); }, { threshold: 0.6 });
+  btns.forEach(function (b) { io.observe(b); });
 })();
