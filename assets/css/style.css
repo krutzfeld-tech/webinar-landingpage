@@ -1092,3 +1092,18 @@ section:not(.hero) .kopf .cta-faces{justify-content:center}
 /* Ring läuft je Button einmal, erst wenn er sichtbar wird */
 .super::before,.btn-weiss::before,.insel-btn::before{animation-play-state:paused !important}
 .super.ring-los::before,.btn-weiss.ring-los::before,.insel-btn.ring-los::before{animation-play-state:running !important}
+
+/* ===== Korrekturen nach der Übernahme der Fassung vom 13.11.2026 ===== */
+/* Zitat: Das „ sitzt tief in seiner Zeile und lag über der ersten Zitatzeile. Jetzt mittig auf der oberen Kante. */
+.case-zitat .qm{top:-4.4rem}
+/* Kein seitliches Verschieben auf Handy und Tablet: Die Raster mit Schaubildern stehen einspaltig,
+   bis drei Spalten wirklich Platz haben, und die Spalte darf schmaler sein als ihr Inhalt. */
+@media(max-width:1023px){.grid.c3.schritt-raster,.grid.c3.bento{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:1099px){.grid.c3.live-raster{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:959px){.tk{grid-template-columns:minmax(0,1fr)}}
+/* Getippte Notizzeile und Ticket-Knopf passen auf schmalen Handys (360 bis 420 px) in eine Zeile. */
+@media(max-width:420px){.lv-notiz{padding-left:.6rem;padding-right:.6rem}.lv-notiz .schreibt{font-size:.875rem}}
+@media(max-width:374px){.lv-notiz .schreibt{letter-spacing:-.02em}}
+@media(max-width:389px){.tk-stub{padding-left:1rem;padding-right:1rem}.tk-stub .super.zwei{padding-left:12px !important;padding-right:12px !important}}
+/* Die Kerben der Ticket-Abrisskante ragten unter 768 px einen halben Pixel über den Bildschirmrand. */
+@media(max-width:767px){.tk-abriss::before{left:-2.5rem}.tk-abriss::after{right:-2.5rem}}
