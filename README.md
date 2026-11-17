@@ -57,7 +57,7 @@ Seit der Fassung vom 13.11.2026 heißt die Seite „In 7 Tagen klickst Du Dich d
 
 `assets/js/config.js` reicht nicht mehr allein. Fest im Code stehen zusätzlich: das Ticket in `index.html` (Datumskachel „Mi 02 Dez 2026“, „11:00 Uhr“, „60 Min.“, `data-countdown="2026-12-02T11:00:00+01:00"`), die Insel unten in `index.html` („Live · Mi, 2. Dez., 11 Uhr“, „60 Minuten plus Fragen“) und die Tageszählung der Insel in `assets/js/app.js` (`2026-12-02`, „um 11 Uhr“).
 
-## Gotcha statt Holling (17.11.2026, lokal, noch nicht veröffentlicht)
+## Gotcha statt Holling (17.11.2026)
 
 Martin: „Ersetze Holger Holling komplett mit Gotcha, füge unten noch pelvi-vibes hinzu. Auch das Hero Video sollte dem Design Overhaul von Gotcha entsprechen.“
 
@@ -71,17 +71,17 @@ Geändert:
 - Die Holling-Bilder sind gelöscht.
 
 Quellen, nichts erfunden:
-- Wortlaut „Gotcha, die App von Max & Molly“, „Hersteller smarter Hundehalsbänder“, „Studio für Beckenbodentraining“, „2 Standorte, eigene App. Erst durchgeklickt, dann gebaut. Heute 160 Kunden.“: Webinar-Deck, Folien 55 und 169.
+- Wortlaut „Gotcha, die App von Max & Molly“, „Hersteller smarter Hundehalsbänder“, „Studio für Beckenbodentraining“, „2 Standorte, eigene App. Erst durchgeklickt, dann gebaut.“: Webinar-Deck, Folien 55 und 169 (dort zusätzlich „Heute 160 Kunden“, auf der Seite weggelassen).
 - „Mit der App Gotcha finden verlorene Haustiere nach Hause. Beratung und Weiterentwicklung der App.“: nach dem Text zu Gotcha auf krutzfeld.tech. Link https://gotchapet.com wie dort.
 - Gotcha-Logo: `public/assets/logos-cases/gotcha.png` aus dem Repo der Website krutzfeld.tech (beschnitten). PelviVibes-Zeichen: `favicon.svg` von https://www.pelvi-vibes.ch.
 - Bildschirme: `r-heute-1` und `r-tier` aus `krutzfeld-technologies-nexus/projekte/gotcha/spezifikationen/2026-11-16-alle-ablaeufe/screens/` (Prototyp-Stand 16.11.2026).
 - Die Tage im Film sind die echten Tage des Prototyps: Tag 1 = 10.11.2026 (gebaut, Karte mit echten Händlern), Tag 2 = Film beim Kunden, Tag 4 = Rückmeldung „aufgeräumter“ und geführte Abläufe, Tag 7 = 16.11.2026 (Einstieg über den QR-Code).
 - Nicht übernommen: die Zahl „7.000 neue Nutzer im Monat, vorher 10“ aus dem Deck. Sie steht in keiner Gotcha-Quelle und wäre eine Geschäftszahl des Kunden.
 
-**Vor dem Veröffentlichen zu klären (Martin):**
+**Von Martin am 17.11.2026 entschieden** (Antwort im Chat: „1) Egal, 2) Ja, Isabelle hat das freigegeben, nur keine Zahlen explizit nennen“), danach veröffentlicht:
 1. Die Bildschirme zeigen Fotos, Muster und Logos von Max & Molly und einen Entwurf, den der Kunde noch nicht freigegeben hat. Das Prototyp-Repo sagt dazu: „Sie gehören Max & Molly und dienen hier nur der Vorführung gegenüber Max & Molly. Nicht öffentlich ablegen.“ Dieses Repo und die Seite sind öffentlich. Die Referenzfreigabe von Max & Molly ist im Nexus als offen vermerkt.
 2. Über den Referenzen steht „Gerne stelle ich ein Gespräch her“. Das gilt damit auch für Max & Molly und PelviVibes.
-3. PelviVibes steht jetzt mit Namen in Gastgeber und Referenzen, der Fall „Aus der Praxis“ ist weiter anonym („Name auf Anfrage“).
+3. PelviVibes steht mit Namen in Gastgeber, Referenzen und im Fall „Aus der Praxis“; Zahlen von PelviVibes stehen nicht auf der Seite (offener Punkt 3 unten).
 
 ## Fassung vom 13.11.2026
 
@@ -103,7 +103,7 @@ Cache: Render liefert `/assets/*` ein Jahr lang als unveränderlich aus (`render
 
 1. ~~Foto von Martin~~ erledigt mit der Fassung vom 13.11.2026 (`assets/img/martin.webp`, `martin-avatar.webp`).
 2. **Dauer**: AddEvent blockt 11 bis 13 Uhr, die Storyline rechnet mit 60 Minuten. Seite sagt „60 Minuten plus Fragen“.
-3. **Praxis-Beweis**: anonymisiert als „Fitness-Studio mit 2 Standorten“, Unterzeile „Beckenboden-Training in der Schweiz“ (PelviVibes). Zitat und Zahlen stammen aus Gespräch 18.06.2026 und der Kundendatenbank (Stand 27.10.2026). Name, Logo und Zitat mit Namen erst nach Freigabe der Inhaberin.
+3. ~~Praxis-Beweis anonym~~ erledigt am 17.11.2026: Isabelle hat die Nennung freigegeben (Martin im Chat: „Isabelle hat das freigegeben, nur keine Zahlen explizit nennen“). Der Fall heißt „So kam PelviVibes in nur 7 Wochen zur eigenen App“, Unterzeile „Studio für Beckenbodentraining mit 2 Standorten in der Schweiz“. Die Kacheln mit 225 Anfragen und 160 Kunden und die Quellenzeile sind entfernt, ebenso „Heute 160 Kunden“ in der Referenzkarte. Geblieben sind „2 Standorte“ (steht auf pelvi-vibes.ch), „7 Wochen“ und „20 Minuten Erstgespräch“ (Angaben zum Projekt, keine Geschäftszahlen von PelviVibes). Das Zitat steht bei „Die Gründerin von PelviVibes“, ohne Personennamen.
 4. **Referenzen**: Christina Mendel und Dr. André Plass wie auf krutzfeld.tech; seit 17.11.2026 Max & Molly (Gotcha) statt Holling Services und zusätzlich PelviVibes, siehe „Gotcha statt Holling“. Keine Zitate, nur Beschreibungen.
 5. **Live-Bonus**: der Skill empfiehlt eine Vorlage nur für Live-Teilnehmer. Nichts Entschiedenes vorhanden, deshalb steht dort „Frage live beantwortet“ und der Automatisierungs-Check zur Buchung des Erstgesprächs (Deck Folie 176). Verlosung: keine.
 6. **Aufzeichnung**: WebinarJam-Replay-Link existiert noch nicht. Seit der Fassung vom 13.11.2026 sagt die Seite nichts mehr zur Aufzeichnung.
