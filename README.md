@@ -28,10 +28,26 @@ Zielgruppe per URL vorbelegen (für Anzeigen, überspringt die Weiche): `?zg=ang
 ## Anmelde-System (offen)
 
 Zwei Wege sind vorbereitet (`LP.anmeldung.modus`):
-- `weiterleitung` (aktiv): nach dem Absenden zur WebinarJam-Anmeldeseite https://event.webinarjam.com/llorqy/register/4o867mug, Vorname und E-Mail als Parameter `first_name`, `email`, Zielgruppe als `zg`. Ob WebinarJam die Felder vorbelegt, ist nicht geprüft.
+- `weiterleitung` (aktiv): nach dem Absenden zur WebinarJam-Anmeldeseite https://event.webinarjam.com/llorqy/register/4o867mug, Vorname und E-Mail als Parameter `first_name`, `email`, Zielgruppe als `zg`. **Geprüft am 17.11.2026: WebinarJam belegt die Felder nicht vor**, siehe „Prüfung 17.11.2026“.
 - `endpunkt`: POST als JSON `{vorname, email, zielgruppe, tag, quelle}` an `anmeldeEndpunkt` (zum Beispiel ein nexus-hub-Endpunkt, der WebinarJam per API registriert und Close taggt), danach `danke.html`. Die Danke-Seite schickt die Frage vorab als `{typ:'frage', email, vorname, frage}` an denselben Endpunkt.
 
 Tags fürs CRM: `webinar-zg-angebote`, `webinar-zg-ki`, `webinar-zg-gebrannt`, `webinar-zg-idee`, `webinar-zg-ohne`.
+
+### Prüfung 17.11.2026: Für echte Anmeldungen noch nicht eingerichtet
+
+Die Seite selbst läuft (live gleich Repo, keine Fehler, alle Links erreichbar). Der Anmeldeweg trägt noch nicht:
+
+1. **Vorschau-Modus:** `LP.liveHosts` ist leer. Jede Anmeldung endet auf `danke.html?vorschau=1`, gespeichert oder weitergegeben wird nichts.
+2. **Modus `weiterleitung` taugt so nicht:** Mit gesetztem Live-Host (im Browser simuliert) leitet das Formular auf `https://event.webinarjam.com/llorqy/register/4o867mug?first_name=…&email=…&zg=…`. WebinarJam wertet die Parameter nicht aus: Der Besucher sieht eine zweite Anmeldeseite, muss „REGISTRIEREN“ klicken und Vorname, Nachname (dort Pflichtfeld) und E-Mail noch einmal eintippen. Unsere `danke.html` (Kalender, Frage vorab, Erstgespräch) erreicht er nie.
+3. **Frage vorab:** Ohne `anmeldeEndpunkt` bestätigt die Danke-Seite die Frage, verwirft sie aber.
+4. **WebinarJam-Seite weicht ab:** Titel „… deine eigene App!“, „Was erwartet Dich in den 90 Minuten?“ (hier: 60 Minuten plus Fragen; AddEvent: 11 bis 13 Uhr), Praxisbeispiel „Hebammen-Praxis mit zwei Standorten“ (hier: Fitness-Studio, Beckenboden-Training), Gastgeber ohne Foto.
+5. **Datenschutzerklärung** auf krutzfeld.tech nennt weder WebinarJam noch Calendly (das Erstgespräch `testen-statt-bauen.de/call` führt auf Calendly).
+6. **Messung:** Die Seite hat keine Statistik und kein Pixel. Anmeldungen je Anzeige oder Zielgruppe lassen sich nur über den Endpunkt (Tag `webinar-zg-…`) zählen.
+7. Vorschaubild für geteilte Links (`og:image`) fehlt; Adresse ist die Render-Adresse, `noindex` und `robots.txt` sperren Suchmaschinen.
+
+Wege zu einer Anmeldung ohne Doppeleingabe (Quelle: WebinarJam-Dokumentation, nicht am Konto geprüft):
+- **Endpunkt (dafür ist der Modus `endpunkt` gebaut):** Ein eigener Server-Endpunkt nimmt `{vorname, email, zielgruppe, tag, quelle}` an und meldet über `POST https://api.webinarjam.com/webinarjam/register` an (`api_key`, `webinar_id`, `first_name`, `email`, `schedule`). Der API-Schlüssel darf nicht in die Seite. Danach `danke.html`, dieselbe Adresse nimmt die Frage vorab.
+- **One-Click-Link:** WebinarJam erzeugt ihn im Webinar unter „Advanced“ (`https://event.webinarjam.com/register/1click/…?first_name=…&email=…&schedule_id=…`). Laut WebinarJam für Mails an bestehende Kontakte gedacht; jedes Pflichtfeld des Webinars braucht einen Parameter (Nachname). Eine eigene Bestätigungsseite bekommt die Daten als `wj_lead_…`-Parameter.
 
 ## Headline
 
