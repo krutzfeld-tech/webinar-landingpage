@@ -127,17 +127,17 @@ Stand bei Render (17.11.2026, per `skills/render-blueprint/domain-anlegen.py` un
 - Custom Domains am Dienst: `testen-statt-bauen.de` (Hauptadresse) und `www.testen-statt-bauen.de` (leitet auf die Hauptadresse). Beide warten auf die DNS-Umstellung.
 - Route `/call` leitet auf https://krutzfeld.tech/call (von dort weiter zum Calendly-Termin). Der Buchungslink `testen-statt-bauen.de/call` steht im Deck, auf der Danke-Seite und in `config.js`; bisher trug ihn die Weiterleitung der ganzen Domain bei IONOS.
 
-DNS liegt bei IONOS (Nameserver `ui-dns`), in Martins Konto; ein API-Zugang dafür liegt nicht vor. Umzustellen:
+DNS liegt bei IONOS (Nameserver `ui-dns`), in Martins Konto. Umgestellt am 17.11.2026 um 16:17 Uhr im IONOS-Konto (Auftrag Martin):
 
-| Eintrag | bisher | neu |
+| Eintrag | vorher | jetzt |
 |---|---|---|
-| Weiterleitung der Domain auf krutzfeld.tech | aktiv | entfernen |
-| A `@` | 217.160.0.179 (IONOS-Weiterleitung) | 216.24.57.1 |
-| AAAA `@` | 2001:8d8:100f:f000::200 | löschen (Render nimmt kein IPv6 an) |
-| `www` | A 217.160.0.179 | CNAME `webinar-landingpage-hwlt.onrender.com` |
-| MX, SPF, DMARC | IONOS-Mail | unverändert lassen (martin@testen-statt-bauen.de) |
+| Weiterleitung der Domain auf krutzfeld.tech | aktiv | von IONOS deaktiviert, als der A-Eintrag geändert wurde |
+| A `@` | 217.160.0.179 | 216.24.57.1 |
+| AAAA `@` | 2001:8d8:100f:f000::200 | entfernt |
+| `www` | A und AAAA auf die IONOS-Weiterleitung | CNAME `webinar-landingpage-hwlt.onrender.com` |
+| MX, SPF, DMARC, DKIM (IONOS, WebinarJam/SendGrid, ActiveCampaign), `route` (lemlist) | | unverändert |
 
-Danach: `python3 skills/render-blueprint/domain-anlegen.py srv-dbonuuijnfac73fgs4s0 testen-statt-bauen.de --verifizieren`, Zertifikat abwarten, Seite und `/call` unter der neuen Adresse prüfen.
+Der vollständige Stand vor der Umstellung und der Weg zurück stehen im Nexus: `markt/webinar/dns-testen-statt-bauen-vor-umstellung-2026-11-17.txt`. Render hat beide Domains nach der Umstellung bestätigt (`domain-anlegen.py … --verifizieren`).
 
 Der Vorschau-Modus hängt nicht an der Domain: Solange `LP.liveHosts` leer ist, zeigt auch `testen-statt-bauen.de` das rote Banner und speichert keine Anmeldung (Abschnitt „Prüfung 17.11.2026“).
 
