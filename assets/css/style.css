@@ -1112,8 +1112,8 @@ section:not(.hero) .kopf .cta-faces{justify-content:center}
 /* Die Bildschirme aus dem Gotcha-Prototyp sind schmaler als die bisherigen (780 x 1688 statt 450 x 800). Das Telefon im Hero-Film
    bekommt ihr Seitenverhältnis: gleiche Höhe wie bisher, 16 px schmaler, gleiche Mitte. */
 .kf .phone{left:568px;width:394px}
-/* Schritt 2: Der Klick liegt auf der Zeile „Steckbrief“. */
-.handy .tap{left:37%;top:49%}
+/* Schritt 2: Der Klick liegt auf der Kachel „3 km“ im Bildschirm „Nachbarn alarmieren“. */
+.handy .tap{left:37%;top:35%}
 /* Vier Referenzen: eine Spalte auf dem Handy, zwei ab 640 px, vier ab 1100 px. */
 .grid.refs{grid-template-columns:minmax(0,1fr)}
 @media(min-width:640px){.grid.refs{grid-template-columns:repeat(2,minmax(0,1fr))}}

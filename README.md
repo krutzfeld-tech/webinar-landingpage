@@ -93,19 +93,19 @@ Martin: „Ersetze Holger Holling komplett mit Gotcha, füge unten noch pelvi-vi
 
 Geändert:
 - **Kundenleiste:** „Holling Services“ entfernt (Max & Molly stand schon dort).
-- **Schritte:** Die zwei Telefone zeigen Startseite und Tier-Seite aus dem Gotcha-Prototyp (`assets/img/gotcha-start.webp`, `gotcha-tier.webp`), Herkunftssatz angepasst.
+- **Schritte:** Die zwei Telefone zeigen die Startseite und „Nachbarn alarmieren“ aus dem Gotcha-Prototyp (`assets/img/gotcha-start.webp`, `gotcha-alarm.webp`), Herkunftssatz angepasst.
 - **Aus der Praxis:** Der zweite Fall ist Max & Molly statt Holling.
 - **Gastgeber:** „Apps für Max & Molly (Gotcha Pet) und PelviVibes“.
 - **Referenzen:** Karte Max & Molly ersetzt Holger Holling, Karte PelviVibes kommt dazu; vier Karten (eine Spalte auf dem Handy, zwei ab 640 px, vier ab 1100 px).
-- **Hero-Film:** Idee, sieben Mitteilungen, Funktionsliste und die zwei Bildschirme stammen aus dem Gotcha-Prototyp. Das Telefon im Film ist 16 px schmaler (Seitenverhältnis der neuen Bildschirme). Mitbehoben: Der Klick-Ring im Film blinkte durchgehend, weil die Animation des Rings aus Schritt 2 auch für ihn galt.
+- **Hero-Film (zweite Fassung nach Martins Rückmeldung „der Text der Herostory passt nicht, für Gotcha bitte etwas Passendes und mehrere der neuen Designs“):** Der Film erzählt jetzt die Geschichte von Gotcha. Idee: QR-Code am Halsband, Finder scannt und ruft an, Nachbarn helfen suchen. Sieben Mitteilungen von Tag 1 bis Tag 7. Danach ein Klickweg durch sechs Bildschirme des neuen Designs: Start, Bruno, „Wo war Bruno zuletzt?“, „Nachbarn alarmieren“, „Bruno wird gesucht“, „Willkommen zurück, Bruno.“ (`gotcha-start`, `-tier`, `-suche`, `-alarm`, `-suchmodus`, `-gefunden`). Der Anhänger heißt im Film „QR-Code“, weil „Tag“ dort der Kalendertag ist. Texte, Bildschirme und Klickstellen stehen oben in `assets/js/film.js` (`IDEE`, `NOTE`, `FUNK`, `SCREENS`, `KLICK`). Das Telefon im Film ist 16 px schmaler (Seitenverhältnis der neuen Bildschirme). Mitbehoben: Der Klick-Ring im Film blinkte durchgehend, weil die Animation des Rings aus Schritt 2 auch für ihn galt.
 - Die Holling-Bilder sind gelöscht.
 
 Quellen, nichts erfunden:
 - Wortlaut „Gotcha, die App von Max & Molly“, „Hersteller smarter Hundehalsbänder“, „Studio für Beckenbodentraining“, „2 Standorte, eigene App. Erst durchgeklickt, dann gebaut.“: Webinar-Deck, Folien 55 und 169 (dort zusätzlich „Heute 160 Kunden“, auf der Seite weggelassen).
 - „Mit der App Gotcha finden verlorene Haustiere nach Hause. Beratung und Weiterentwicklung der App.“: nach dem Text zu Gotcha auf krutzfeld.tech. Link https://gotchapet.com wie dort.
 - Gotcha-Logo: `public/assets/logos-cases/gotcha.png` aus dem Repo der Website krutzfeld.tech (beschnitten). PelviVibes-Zeichen: `favicon.svg` von https://www.pelvi-vibes.ch.
-- Bildschirme: `r-heute-1` und `r-tier` aus `krutzfeld-technologies-nexus/projekte/gotcha/spezifikationen/2026-11-16-alle-ablaeufe/screens/` (Prototyp-Stand 16.11.2026).
-- Die Tage im Film sind die echten Tage des Prototyps: Tag 1 = 10.11.2026 (gebaut, Karte mit echten Händlern), Tag 2 = Film beim Kunden, Tag 4 = Rückmeldung „aufgeräumter“ und geführte Abläufe, Tag 7 = 16.11.2026 (Einstieg über den QR-Code).
+- Bildschirme: `r-heute-1`, `r-tier`, `ab-suche-1`, `ab-suche-2`, `r-suchmodus`, `r-gefunden` aus `krutzfeld-technologies-nexus/projekte/gotcha/spezifikationen/2026-11-16-alle-ablaeufe/screens/` (Prototyp-Stand 16.11.2026).
+- Die sieben Mitteilungen im Film zeigen einen Prototyp in 7 Tagen als Beispiel. Ihre Inhalte gibt es im Gotcha-Prototyp wirklich (Startseite, Hund anmelden in drei Schritten, je Bildschirm eine Frage, Finder-Seite, Einstieg über den QR-Code, Alarm an die Nachbarn); die Zuordnung zu einzelnen Tagen ist Darstellung. Der Prototyp selbst entstand vom 10.11. bis 16.11.2026.
 - Nicht übernommen: die Zahl „7.000 neue Nutzer im Monat, vorher 10“ aus dem Deck. Sie steht in keiner Gotcha-Quelle und wäre eine Geschäftszahl des Kunden.
 
 **Von Martin am 17.11.2026 entschieden** (Antwort im Chat: „1) Egal, 2) Ja, Isabelle hat das freigegeben, nur keine Zahlen explizit nennen“), danach veröffentlicht:
