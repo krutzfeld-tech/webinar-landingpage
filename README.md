@@ -109,7 +109,7 @@ Cache: Render liefert `/assets/*` ein Jahr lang als unveränderlich aus (`render
 6. **Aufzeichnung**: WebinarJam-Replay-Link existiert noch nicht. Seit der Fassung vom 13.11.2026 sagt die Seite nichts mehr zur Aufzeichnung.
 7. **VIP-Schritt per SMS** aus dem Skill ist weggelassen (kein SMS-System). Danke-Seite hat stattdessen Kalender, Frage vorab und Erstgespräch.
 8. **Impressum/Datenschutz** verlinken auf krutzfeld.tech. Datenschutzerklärung dort um WebinarJam ergänzen, bevor die Seite live geht.
-9. **Domain**: Vorschlag `webinar.krutzfeld.tech` oder `testen-statt-bauen.de` (heute IONOS-Weiterleitung auf krutzfeld.tech/call).
+9. **Domain**: entschieden am 17.11.2026, die Seite läuft auf `testen-statt-bauen.de` (Abschnitt „Domain“).
 
 ## UX-Iterationen 09.11.2026 (abgelöst durch die Fassung vom 13.11.2026)
 
@@ -118,6 +118,28 @@ Cache: Render liefert `/assets/*` ein Jahr lang als unveränderlich aus (`render
 3. **Feinschliff:** Handy-Mock mit echtem Inhalt (Anfrage, Schritt 2 von 3), Icons in Inhalte- und Live-Karten, Hover- und Druckzustände, Topbar-Schatten, kompaktere Abstände auf dem Handy, Footer-Logo, Leiter-Etikett und Pfeil auf schmalen Bildschirmen.
 
 Screenshots je Iteration: `qa/iter0` (vorher) bis `qa/iter3`.
+
+## Domain testen-statt-bauen.de
+
+Martin am 17.11.2026: „Die Seite muss noch auf testen-statt-bauen.de stattfinden.“
+
+Stand bei Render (17.11.2026, per `skills/render-blueprint/domain-anlegen.py` und `routen-setzen.py` im Nexus):
+- Custom Domains am Dienst: `testen-statt-bauen.de` (Hauptadresse) und `www.testen-statt-bauen.de` (leitet auf die Hauptadresse). Beide warten auf die DNS-Umstellung.
+- Route `/call` leitet auf https://krutzfeld.tech/call (von dort weiter zum Calendly-Termin). Der Buchungslink `testen-statt-bauen.de/call` steht im Deck, auf der Danke-Seite und in `config.js`; bisher trug ihn die Weiterleitung der ganzen Domain bei IONOS.
+
+DNS liegt bei IONOS (Nameserver `ui-dns`), in Martins Konto; ein API-Zugang dafür liegt nicht vor. Umzustellen:
+
+| Eintrag | bisher | neu |
+|---|---|---|
+| Weiterleitung der Domain auf krutzfeld.tech | aktiv | entfernen |
+| A `@` | 217.160.0.179 (IONOS-Weiterleitung) | 216.24.57.1 |
+| AAAA `@` | 2001:8d8:100f:f000::200 | löschen (Render nimmt kein IPv6 an) |
+| `www` | A 217.160.0.179 | CNAME `webinar-landingpage-hwlt.onrender.com` |
+| MX, SPF, DMARC | IONOS-Mail | unverändert lassen (martin@testen-statt-bauen.de) |
+
+Danach: `python3 skills/render-blueprint/domain-anlegen.py srv-dbonuuijnfac73fgs4s0 testen-statt-bauen.de --verifizieren`, Zertifikat abwarten, Seite und `/call` unter der neuen Adresse prüfen.
+
+Der Vorschau-Modus hängt nicht an der Domain: Solange `LP.liveHosts` leer ist, zeigt auch `testen-statt-bauen.de` das rote Banner und speichert keine Anmeldung (Abschnitt „Prüfung 17.11.2026“).
 
 ## Deploy
 

@@ -14,7 +14,14 @@ services:
       - path: /assets/*
         name: Cache-Control
         value: public, max-age=31536000, immutable
+    domains:
+      - testen-statt-bauen.de
+      - www.testen-statt-bauen.de
     routes:
       - type: rewrite
         source: /danke
         destination: /danke.html
+      # Buchungslink aus Deck, Danke-Seite und Mails: lief bisher über die IONOS-Weiterleitung der Domain auf krutzfeld.tech
+      - type: redirect
+        source: /call
+        destination: https://krutzfeld.tech/call
