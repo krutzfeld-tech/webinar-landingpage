@@ -1,5 +1,8 @@
 /* Krutzfeld Hero-Animation: Idee -> Prototyp in 7 Tagen -> Durchklicken -> fertige App -> Garantie.
-   Umgebaut aus dem JustClose-NTX-Hero-Film (hookfilm-film.js), gleiche Mechanik: 1600x900-Bühne, GSAP-Timeline, Endlosschleife. */
+   Umgebaut aus dem JustClose-NTX-Hero-Film (hookfilm-film.js), gleiche Mechanik: 1600x900-Bühne, GSAP-Timeline, Endlosschleife.
+   Inhalt seit 17.11.2026: der Gotcha-Prototyp für Max & Molly (neue Oberfläche). Die Tage in NOTE sind die echten Tage
+   des Prototyps: Tag 1 = 10.11.2026 (gebaut), Tag 2 = Film beim Kunden, Tag 4 = Rückmeldung und geführte Abläufe,
+   Tag 7 = 16.11.2026 (Einstieg über den QR-Code, alle Abläufe aufgeräumt). */
 (function(){
 'use strict';
 var root=document.querySelector('[data-film]');
@@ -7,9 +10,9 @@ var stage=root&&root.querySelector('.kf');
 if(!stage||!window.gsap)return;
 var $=function(s,r){return (r||stage).querySelector(s);},$$=function(s,r){return [].slice.call((r||stage).querySelectorAll(s));};
 var F=function(tl,el,a,b,t){return tl.fromTo(el,a,Object.assign({immediateRender:false},b),t);};
-var IDEE=['Sanitär-Checks digital machen','Räume einzeln abhaken','Mängel mit Foto festhalten','Bericht für den Kunden'];
-var NOTE=[['Tag 1','Prototyp','Masken für alle Räume angelegt'],['Tag 2','Prototyp','Prüffragen mit Ampel eingebaut'],['Tag 3','Feedback','Kunde: Kommentar bei Gelb Pflicht'],['Tag 4','Prototyp','Foto pro Prüfpunkt ergänzt'],['Tag 5','Feedback','Monteur: Weiter-Knopf größer'],['Tag 6','Prototyp','Objektliste und Navigation fertig'],['Tag 7','Prototyp','Bereit zum Durchklicken']];
-var FUNK=['Objekte und Räume verwalten','Checks pro Raum','Prüffragen mit Ampel','Kommentar-Pflicht bei Gelb','Foto pro Prüfpunkt','Mehrsprachig','Bereit für Feldtests'];
+var IDEE=['Tag am Halsband scannen','Finder ruft direkt an','Vermisstes Tier melden','Fotos im Rudel teilen'];
+var NOTE=[['Tag 1','Prototyp','Fünf Bereiche der App angelegt'],['Tag 1','Prototyp','Karte mit echten Händlern'],['Tag 2','Prototyp','Als Film beim Kunden'],['Tag 4','Feedback','Kunde: bitte aufgeräumter'],['Tag 4','Prototyp','Je Bildschirm nur eine Frage'],['Tag 7','Prototyp','Einstieg über den QR-Code'],['Tag 7','Prototyp','Bereit zum Durchklicken']];
+var FUNK=['Tiere mit Steckbrief','Tag und Halsband verbinden','Finder-Seite mit Anruf','Nachbarn alarmieren','Meldungen auf der Karte','Fotos und Runden im Rudel','Bereit für Tests mit Nutzern'];
 var ICO='<svg viewBox="0 0 24 24" width="22" height="22"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 stage.innerHTML='<div class="ew">'+
  '<div class="grid"></div>'+
@@ -18,8 +21,8 @@ stage.innerHTML='<div class="ew">'+
  '<div class="phone"><div class="screen"><div class="island"></div>'+
    '<div class="ls"><div class="ls-date">Dein Prototyp</div><div class="ls-time">Tag 1</div><div class="bar"><i></i></div>'+
    '<div class="notifs">'+NOTE.map(function(n){return '<div class="nt"><div class="ic">'+ICO+'</div><div class="tx"><div class="hdr"><span>'+n[1]+'</span><span>'+n[0]+'</span></div><p>'+n[2]+'</p></div></div>';}).join('')+'</div></div>'+
-   '<div class="app a1"><img src="assets/img/holling-1.webp" alt=""></div>'+
-   '<div class="app a2"><img src="assets/img/holling-2.webp" alt=""></div>'+
+   '<div class="app a1"><img src="assets/img/gotcha-start.webp" alt=""></div>'+
+   '<div class="app a2"><img src="assets/img/gotcha-tier.webp" alt=""></div>'+
    '<span class="tap"></span><div class="home"></div></div></div>'+
  '<div class="garantie-pill"><svg viewBox="0 0 24 24" width="40" height="40"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6L12 3Z" fill="none" stroke="#22d3ee" stroke-width="2"/><path d="m9 12 2.2 2.2L15.5 10" fill="none" stroke="#22d3ee" stroke-width="2"/></svg><span><b>Kein Prototyp nach 7&nbsp;Tagen?</b>Dann zahlst Du nichts.</span></div>'+
  '<div class="cap"></div>'+
@@ -63,7 +66,7 @@ function build(){
   nts.forEach(function(n,k){
     F(tl,n,{opacity:0,y:-24,scale:.96},{opacity:1,y:0,scale:1,duration:.22,ease:'power2.out'},tt);
     for(var j=0;j<k;j++){tl.to(nts[j],{y:(k-j)*NH,duration:.22,ease:'power2.out'},tt);}
-    (function(k){tl.call(function(){lt.textContent=NOTE[k][0];bar.style.width=((k+1)/7*100)+'%';},null,tt);})(k);
+    (function(k){tl.call(function(){lt.textContent=NOTE[k][0];bar.style.width=(parseInt(NOTE[k][0].replace(/\D/g,''),10)/7*100)+'%';},null,tt);})(k);
     F(tl,phone,{rotation:k%2?1.4:-1.4},{rotation:0,duration:.3,ease:'elastic.out(1.2,0.3)'},tt);
     tt+=.55;
   });
@@ -75,9 +78,10 @@ function build(){
   F(tl,a1,{opacity:0,scale:.96},{opacity:1,scale:1,duration:.4,ease:'power2.out'},D+.3);
   capt(D+.3,'Durchklicken.');
   function tp(t,x,y){tl.set(tap,{left:x,top:y},t);F(tl,tap,{opacity:0,scale:.4},{opacity:1,scale:1,duration:.18},t);tl.to(tap,{scale:1.6,opacity:0,duration:.35},t+.22);}
-  tp(D+1.2,190,215);
+  /* Klickstellen auf den Gotcha-Bildschirmen (Bildschirm im Film 366 x 792): Foto von Bruno, Zeile Steckbrief, Knopf Als vermisst melden */
+  tp(D+1.2,183,328);
   F(tl,a2,{opacity:0,x:60},{opacity:1,x:0,duration:.35,ease:'power3.out'},D+1.55);
-  tp(D+2.4,195,290);tp(D+3.1,304,612);
+  tp(D+2.4,183,436);tp(D+3.1,183,738);
   /* 04 Deine App mit allen Funktionen */
   var A=D+3.7;
   step(A,4,'Deine App');

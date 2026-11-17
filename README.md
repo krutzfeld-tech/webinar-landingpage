@@ -14,7 +14,7 @@ Reine statische Seite: kein Build, kein Framework, keine Aufrufe an fremde Serve
 | `danke.html` + `assets/js/danke.js` | Danke-Seite: Vorname, Kalender (Google, ICS, AddEvent), Frage vorab, Erstgespräch |
 | `assets/js/config.js` | Termin, Links, Live-Hosts, Anmelde-Modus, Texte je Zielgruppe. **Nur hier ändern.** |
 | `assets/js/app.js` | Zielgruppen-Weiche, Anmelde-Popup, Exit-Intent, Reveal-Animationen, Leiter-Pfeil, Zähler, Insel unten, Countdown |
-| `assets/js/film.js` + `assets/js/vendor/gsap-3.12.5.min.js` | Hero-Animation (Idee, Prototyp in 7 Tagen, Durchklicken, App, Garantie). GSAP ist die unveränderte Datei von cdnjs (SHA-256 geprüft am 13.11.2026). |
+| `assets/js/film.js` + `assets/js/vendor/gsap-3.12.5.min.js` | Hero-Animation (Idee, Prototyp in 7 Tagen, Durchklicken, App, Garantie), seit 17.11.2026 mit Inhalt und Bildschirmen aus dem Gotcha-Prototyp. GSAP ist die unveränderte Datei von cdnjs (SHA-256 geprüft am 13.11.2026). |
 | `assets/css/style.css` | Stil aus dem Webinar-Deck (dunkel, Cyan `#67e8f9`, Inter). Korrekturen nach der Übernahme stehen als eigener Block am Dateiende. |
 | `assets/video/`, `video/` | Teaser-Video vom 09.11.2026 samt Bauskript. Seit der Fassung vom 13.11.2026 auf der Seite nicht mehr eingebunden. |
 | `render.yaml` | Render Static Site (publishPath `.`, kein Build) |
@@ -57,6 +57,32 @@ Seit der Fassung vom 13.11.2026 heißt die Seite „In 7 Tagen klickst Du Dich d
 
 `assets/js/config.js` reicht nicht mehr allein. Fest im Code stehen zusätzlich: das Ticket in `index.html` (Datumskachel „Mi 02 Dez 2026“, „11:00 Uhr“, „60 Min.“, `data-countdown="2026-12-02T11:00:00+01:00"`), die Insel unten in `index.html` („Live · Mi, 2. Dez., 11 Uhr“, „60 Minuten plus Fragen“) und die Tageszählung der Insel in `assets/js/app.js` (`2026-12-02`, „um 11 Uhr“).
 
+## Gotcha statt Holling (17.11.2026, lokal, noch nicht veröffentlicht)
+
+Martin: „Ersetze Holger Holling komplett mit Gotcha, füge unten noch pelvi-vibes hinzu. Auch das Hero Video sollte dem Design Overhaul von Gotcha entsprechen.“
+
+Geändert:
+- **Kundenleiste:** „Holling Services“ entfernt (Max & Molly stand schon dort).
+- **Schritte:** Die zwei Telefone zeigen Startseite und Tier-Seite aus dem Gotcha-Prototyp (`assets/img/gotcha-start.webp`, `gotcha-tier.webp`), Herkunftssatz angepasst.
+- **Aus der Praxis:** Der zweite Fall ist Max & Molly statt Holling.
+- **Gastgeber:** „Apps für Max & Molly (Gotcha Pet) und PelviVibes“.
+- **Referenzen:** Karte Max & Molly ersetzt Holger Holling, Karte PelviVibes kommt dazu; vier Karten (eine Spalte auf dem Handy, zwei ab 640 px, vier ab 1100 px).
+- **Hero-Film:** Idee, sieben Mitteilungen, Funktionsliste und die zwei Bildschirme stammen aus dem Gotcha-Prototyp. Das Telefon im Film ist 16 px schmaler (Seitenverhältnis der neuen Bildschirme). Mitbehoben: Der Klick-Ring im Film blinkte durchgehend, weil die Animation des Rings aus Schritt 2 auch für ihn galt.
+- Die Holling-Bilder sind gelöscht.
+
+Quellen, nichts erfunden:
+- Wortlaut „Gotcha, die App von Max & Molly“, „Hersteller smarter Hundehalsbänder“, „Studio für Beckenbodentraining“, „2 Standorte, eigene App. Erst durchgeklickt, dann gebaut. Heute 160 Kunden.“: Webinar-Deck, Folien 55 und 169.
+- „Mit der App Gotcha finden verlorene Haustiere nach Hause. Beratung und Weiterentwicklung der App.“: nach dem Text zu Gotcha auf krutzfeld.tech. Link https://gotchapet.com wie dort.
+- Gotcha-Logo: `public/assets/logos-cases/gotcha.png` aus dem Repo der Website krutzfeld.tech (beschnitten). PelviVibes-Zeichen: `favicon.svg` von https://www.pelvi-vibes.ch.
+- Bildschirme: `r-heute-1` und `r-tier` aus `krutzfeld-technologies-nexus/projekte/gotcha/spezifikationen/2026-11-16-alle-ablaeufe/screens/` (Prototyp-Stand 16.11.2026).
+- Die Tage im Film sind die echten Tage des Prototyps: Tag 1 = 10.11.2026 (gebaut, Karte mit echten Händlern), Tag 2 = Film beim Kunden, Tag 4 = Rückmeldung „aufgeräumter“ und geführte Abläufe, Tag 7 = 16.11.2026 (Einstieg über den QR-Code).
+- Nicht übernommen: die Zahl „7.000 neue Nutzer im Monat, vorher 10“ aus dem Deck. Sie steht in keiner Gotcha-Quelle und wäre eine Geschäftszahl des Kunden.
+
+**Vor dem Veröffentlichen zu klären (Martin):**
+1. Die Bildschirme zeigen Fotos, Muster und Logos von Max & Molly und einen Entwurf, den der Kunde noch nicht freigegeben hat. Das Prototyp-Repo sagt dazu: „Sie gehören Max & Molly und dienen hier nur der Vorführung gegenüber Max & Molly. Nicht öffentlich ablegen.“ Dieses Repo und die Seite sind öffentlich. Die Referenzfreigabe von Max & Molly ist im Nexus als offen vermerkt.
+2. Über den Referenzen steht „Gerne stelle ich ein Gespräch her“. Das gilt damit auch für Max & Molly und PelviVibes.
+3. PelviVibes steht jetzt mit Namen in Gastgeber und Referenzen, der Fall „Aus der Praxis“ ist weiter anonym („Name auf Anfrage“).
+
 ## Fassung vom 13.11.2026
 
 Martin hat die überarbeitete Seite als `krutzfeld-webinar-lp.zip` geliefert; sie ist unverändert übernommen (Commit „Neue Fassung der Anmeldeseite …“). Neu gegenüber dem 09.11.2026: Hero mit Animation statt Video, Kundenleiste, Problemkette mit vier animierten Karten, Kennzahlen und Zitat im Praxisfall, Ticket mit Countdown, Foto von Martin, Insel unten, Exit-Popup mit eigenem Text.
@@ -78,7 +104,7 @@ Cache: Render liefert `/assets/*` ein Jahr lang als unveränderlich aus (`render
 1. ~~Foto von Martin~~ erledigt mit der Fassung vom 13.11.2026 (`assets/img/martin.webp`, `martin-avatar.webp`).
 2. **Dauer**: AddEvent blockt 11 bis 13 Uhr, die Storyline rechnet mit 60 Minuten. Seite sagt „60 Minuten plus Fragen“.
 3. **Praxis-Beweis**: anonymisiert als „Fitness-Studio mit 2 Standorten“, Unterzeile „Beckenboden-Training in der Schweiz“ (PelviVibes). Zitat und Zahlen stammen aus Gespräch 18.06.2026 und der Kundendatenbank (Stand 27.10.2026). Name, Logo und Zitat mit Namen erst nach Freigabe der Inhaberin.
-4. **Referenzen**: übernommen von krutzfeld.tech (Christina Mendel, Dr. André Plass, Holling Services). Keine Zitate, nur Beschreibungen, wie dort.
+4. **Referenzen**: Christina Mendel und Dr. André Plass wie auf krutzfeld.tech; seit 17.11.2026 Max & Molly (Gotcha) statt Holling Services und zusätzlich PelviVibes, siehe „Gotcha statt Holling“. Keine Zitate, nur Beschreibungen.
 5. **Live-Bonus**: der Skill empfiehlt eine Vorlage nur für Live-Teilnehmer. Nichts Entschiedenes vorhanden, deshalb steht dort „Frage live beantwortet“ und der Automatisierungs-Check zur Buchung des Erstgesprächs (Deck Folie 176). Verlosung: keine.
 6. **Aufzeichnung**: WebinarJam-Replay-Link existiert noch nicht. Seit der Fassung vom 13.11.2026 sagt die Seite nichts mehr zur Aufzeichnung.
 7. **VIP-Schritt per SMS** aus dem Skill ist weggelassen (kein SMS-System). Danke-Seite hat stattdessen Kalender, Frage vorab und Erstgespräch.

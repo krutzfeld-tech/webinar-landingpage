@@ -1107,3 +1107,16 @@ section:not(.hero) .kopf .cta-faces{justify-content:center}
 @media(max-width:389px){.tk-stub{padding-left:1rem;padding-right:1rem}.tk-stub .super.zwei{padding-left:12px !important;padding-right:12px !important}}
 /* Die Kerben der Ticket-Abrisskante ragten unter 768 px einen halben Pixel über den Bildschirmrand. */
 @media(max-width:767px){.tk-abriss::before{left:-2.5rem}.tk-abriss::after{right:-2.5rem}}
+
+/* ===== Gotcha statt Holling (17.11.2026) ===== */
+/* Die Bildschirme aus dem Gotcha-Prototyp sind schmaler als die bisherigen (780 x 1688 statt 450 x 800). Das Telefon im Hero-Film
+   bekommt ihr Seitenverhältnis: gleiche Höhe wie bisher, 16 px schmaler, gleiche Mitte. */
+.kf .phone{left:568px;width:394px}
+/* Schritt 2: Der Klick liegt auf der Zeile „Steckbrief“. */
+.handy .tap{left:37%;top:49%}
+/* Vier Referenzen: eine Spalte auf dem Handy, zwei ab 640 px, vier ab 1100 px. */
+.grid.refs{grid-template-columns:minmax(0,1fr)}
+@media(min-width:640px){.grid.refs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1100px){.grid.refs{grid-template-columns:repeat(4,minmax(0,1fr))}.refs .karte{padding:1.5rem}}
+/* Der Klick-Ring im Hero-Film gehört der Film-Steuerung. Die Dauer-Animation des Rings in Schritt 2 (.tap) galt versehentlich auch für ihn: er blinkte durchgehend, auch nach dem Filmende. */
+.kf .tap{animation:none}
