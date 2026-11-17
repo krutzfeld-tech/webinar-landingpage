@@ -15,6 +15,12 @@
   var istLive = (LP.liveHosts || []).indexOf(location.hostname) !== -1;
   if (!istLive) document.body.classList.add('vorschau-modus');
 
+  /* Modus 'direkt' (nur live): kein eigenes Formular, die Knöpfe führen zur WebinarJam-Anmeldeseite */
+  var direktZiel = (LP.links || {}).webinarjamAnmeldung;
+  var direkt = istLive && (LP.anmeldung || {}).modus === 'direkt' && !!direktZiel;
+  if (direkt) document.body.classList.add('anmeldung-direkt');
+  function zurAnmeldung() { location.href = direktZiel; }
+
   /* Termin-Texte aus der Konfiguration */
   $$('[data-ev]').forEach(function (el) { var k = el.getAttribute('data-ev'); if (EV[k]) el.textContent = EV[k]; });
 
@@ -57,7 +63,8 @@
     zeigeSchritt(weiche ? 'weiche' : 'formular');
     modal.classList.toggle('ist-weiche', weiche);
     modal.hidden = false; modal.classList.add('offen'); document.body.classList.add('popup-offen');
-    var f = weiche ? $('.kachel', modal) : $('#anmeldung input[name=vorname]');
+    if (direkt) { var fuss = $('.f-fuss', modal); if (fuss) fuss.textContent = 'Weiter geht es auf der Anmeldeseite von WebinarJam.'; }
+    var f = weiche ? $('.kachel', modal) : $(direkt ? '#anmeldung button[type=submit]' : '#anmeldung input[name=vorname]');
     if (f) setTimeout(function () { f.focus({ preventScroll: true }); }, 60);
   }
   function schliessen() {
@@ -66,7 +73,7 @@
     store.set(KEY_WEICHE, '1');
     if (letzterFokus && letzterFokus.focus) letzterFokus.focus();
   }
-  $$('[data-anmelden]').forEach(function (b) { b.addEventListener('click', function () { oeffnen({ modus: 'anmelden' }); }); });
+  $$('[data-anmelden]').forEach(function (b) { b.addEventListener('click', function () { if (direkt) zurAnmeldung(); else oeffnen({ modus: 'anmelden' }); }); });
   $$('[data-schliessen]').forEach(function (b) { b.addEventListener('click', schliessen); });
   if (modal) modal.addEventListener('click', function (e) { if (e.target === modal) schliessen(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal && !modal.hidden) schliessen(); });
@@ -93,6 +100,7 @@
   var form = $('#anmeldung');
   if (form) form.addEventListener('submit', function (e) {
     e.preventDefault();
+    if (direkt) { zurAnmeldung(); return; }
     var vorname = form.vorname.value.trim(), email = form.email.value.trim();
     var ok = vorname.length > 1 && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
     var fehler = $('[data-fehler]', form); if (fehler) fehler.classList.toggle('zeigen', !ok);

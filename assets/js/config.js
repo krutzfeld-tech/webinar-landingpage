@@ -4,7 +4,7 @@ window.LP = {
     name: 'Live-Webinar',
     titel: 'In 7 Tagen klickst Du Dich durch Deine App-Idee',
     startISO: '2026-12-02T11:00:00+01:00',   // Quelle: AddEvent (Europe/Zurich)
-    endeISO:  '2026-12-02T12:00:00+01:00',   // OFFEN: AddEvent blockt 11 bis 13 Uhr, Storyline rechnet mit 60 Minuten
+    endeISO:  '2026-12-02T13:00:00+01:00',   // Termin wie in WebinarJam und AddEvent: 11 bis 13 Uhr (Fahrplan v07). Der Vortrag dauert 60 Minuten, danach Fragen.
     datumKurz: 'Mi, 2. Dez. 2026',
     datumLang: 'Mittwoch, 2. Dezember 2026',
     zeitText: '11:00\u00a0Uhr',
@@ -16,12 +16,17 @@ window.LP = {
     kalenderAddEvent: 'https://www.addevent.com/event/fz10n2fcph1r',
     erstgespraech: 'https://testen-statt-bauen.de/call'
   },
-  // Hostnamen, auf denen Anmeldungen echt sind. Leer = überall Vorschau (rotes Banner, nichts wird gespeichert).
-  liveHosts: [],
+  // Hostnamen, auf denen Anmeldungen echt sind. Überall sonst Vorschau (rotes Banner, nichts wird gespeichert),
+  // also auch auf der Render-Adresse und lokal.
+  liveHosts: ['testen-statt-bauen.de', 'www.testen-statt-bauen.de'],
   anmeldung: {
-    // 'weiterleitung': nach dem Absenden zur WebinarJam-Anmeldeseite (Vorname und E-Mail als Parameter mitgegeben)
-    // 'endpunkt': POST als JSON an anmeldeEndpunkt, danach danke.html
-    modus: 'weiterleitung',
+    // 'direkt': kein eigenes Formular. Die Knöpfe führen zur WebinarJam-Anmeldeseite, dort trägt sich der Besucher einmal ein.
+    //           WebinarJam gibt die Anmeldung an ActiveCampaign weiter (Tag webinar-2026-12-02-registered), von dort kommen
+    //           Bestätigung und Erinnerungen. Das ist der Weg aus Julias Fahrplan (v07).
+    // 'weiterleitung': eigenes Formular, danach zur WebinarJam-Anmeldeseite. Nicht verwenden: WebinarJam übernimmt Vorname
+    //           und E-Mail nicht, der Besucher müsste alles noch einmal eintippen (geprüft 17.11.2026).
+    // 'endpunkt': eigenes Formular, POST als JSON an anmeldeEndpunkt, danach danke.html
+    modus: 'direkt',
     anmeldeEndpunkt: ''
   },
   // Texte je Zielgruppe (Schlüssel = data-zgt im HTML). Fehlt ein Schlüssel, bleibt der Standardtext stehen.

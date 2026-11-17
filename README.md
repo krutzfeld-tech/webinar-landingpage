@@ -21,11 +21,41 @@ Reine statische Seite: kein Build, kein Framework, keine Aufrufe an fremde Serve
 
 ## Vorschau-Modus
 
-Die Seite ist nur auf Hosts aus `LP.liveHosts` „echt“. Überall sonst erscheint das rote Banner „Vorschau: Anmeldungen werden nicht gespeichert“ und das Formular leitet direkt auf `danke.html`. Die Live-Hosts sind derzeit **leer**, also ist auch der Render-Dienst eine Vorschau. Für den Livegang: Hostname eintragen, `noindex` in beiden HTML-Dateien entfernen.
+Die Seite ist nur auf Hosts aus `LP.liveHosts` „echt“. Überall sonst erscheint das rote Banner „Vorschau: Anmeldungen werden nicht gespeichert“ und das Formular leitet direkt auf `danke.html`.
+
+**Seit dem 17.11.2026 live auf `testen-statt-bauen.de`** (und `www`): kein Banner, die Knöpfe führen zur Anmeldung bei WebinarJam (Abschnitt „Live seit 17.11.2026“). Die Render-Adresse `webinar-landingpage-hwlt.onrender.com` und der lokale Server bleiben Vorschau. `noindex` und `robots.txt` sperren Suchmaschinen weiterhin; die Seite ist für Einladungen per Mail gedacht.
 
 Zielgruppe per URL vorbelegen (für Anzeigen, überspringt die Weiche): `?zg=angebote`, `?zg=ki`, `?zg=gebrannt`, `?zg=idee`. Weiche unterdrücken: `?ohne-weiche`.
 
-## Anmelde-System (offen)
+## Live seit 17.11.2026: Anmeldung über WebinarJam (Modus `direkt`)
+
+Martin am 17.11.2026: „Wie kriegen wir den Vorschaumodus weg?“, dazu Julias „Fahrplan Webinar-Technik“ von Just Close (Entwurf v07).
+
+Der Fahrplan legt den Anmeldeweg fest: Anmeldung im WebinarJam-Formular (Vorname, Nachname, E-Mail) → WebinarJam setzt in ActiveCampaign den Tag `webinar-2026-12-02-registered` → ActiveCampaign schickt Bestätigung (mit Zugangslink und Kalenderlink), Erinnerungen am Vortag, eine Stunde vorher und um 10:45 Uhr. Die Mails von WebinarJam selbst sind ausgeschaltet.
+
+Die Seite hängt sich davor (`LP.anmeldung.modus: 'direkt'`): Jeder Knopf „Jetzt meinen Platz sichern“ führt auf https://event.webinarjam.com/llorqy/register/4o867mug. Ein eigenes Formular gibt es im Live-Betrieb nicht, also keine doppelte Eingabe. Die Zielgruppen-Frage beim ersten Besuch bleibt (sie passt nur Texte an), das Exit-Popup zeigt Termin und Knopf ohne Felder. `danke.html` wird im Live-Betrieb nicht erreicht; die Danke-Seite mit Kalender-Knopf liegt bei WebinarJam.
+
+Voraussetzungen außerhalb dieser Seite (Fahrplan, Stand v07):
+- Schritt 29, Automationen in ActiveCampaign aktivieren: Bis dahin bekommt ein Angemeldeter keine Bestätigung.
+- Schritt 32, Testanmeldung mit drei Postfächern: über `https://testen-statt-bauen.de`, vor der ersten Einladung.
+- WebinarJam-Anmeldeseite und AddEvent an die Seite angleichen (Titel, Dauer, Praxisbeispiel, Foto), siehe „Einheitliche Angaben“.
+
+Verloren geht in diesem Modus die Zielgruppe für das CRM (Tags `webinar-zg-…`); die gäbe es nur mit dem Modus `endpunkt`.
+
+## Einheitliche Angaben (Stand 17.11.2026)
+
+| Angabe | gilt | Seite | WebinarJam-Anmeldeseite | AddEvent | Deck |
+|---|---|---|---|---|---|
+| Titel | „In 7 Tagen klickst Du Dich durch Deine App-Idee“ | stimmt | „… deine eigene App!“, offen | „… deine eigene App“, offen | angepasst am 17.11.2026 |
+| Termin | Mi, 02.12.2026, 11 bis 13 Uhr (Fahrplan) | 11:00 Uhr, Kalendereintrag 11 bis 13 Uhr | stimmt | stimmt | |
+| Dauer | 60 Minuten Vortrag, danach Fragen (Storyline: 60 Minuten) | „60 Min. plus Fragen“ | „in den 90 Minuten“, offen | | |
+| Praxisbeispiel | PelviVibes, Studio für Beckenbodentraining, ohne Zahlen | stimmt | „Hebammen-Praxis mit zwei Standorten“, offen | | Folie 55 ohne Kundenzahl seit 17.11.2026 |
+| Buchungslink | `testen-statt-bauen.de/call` → Calendly | stimmt | | | stimmt |
+| Aufzeichnung | nirgends ankündigen (Fahrplan Schritt 9) | stimmt | | | |
+
+„Offen“ heißt: nur im jeweiligen Konto zu ändern; in Martins Chrome waren WebinarJam und AddEvent am 17.11.2026 nicht angemeldet.
+
+## Anmelde-System (Stand vor dem 17.11.2026, überholt durch den Abschnitt oben)
 
 Zwei Wege sind vorbereitet (`LP.anmeldung.modus`):
 - `weiterleitung` (aktiv): nach dem Absenden zur WebinarJam-Anmeldeseite https://event.webinarjam.com/llorqy/register/4o867mug, Vorname und E-Mail als Parameter `first_name`, `email`, Zielgruppe als `zg`. **Geprüft am 17.11.2026: WebinarJam belegt die Felder nicht vor**, siehe „Prüfung 17.11.2026“.

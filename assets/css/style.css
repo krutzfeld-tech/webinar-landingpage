@@ -1120,3 +1120,7 @@ section:not(.hero) .kopf .cta-faces{justify-content:center}
 @media(min-width:1100px){.grid.refs{grid-template-columns:repeat(4,minmax(0,1fr))}.refs .karte{padding:1.5rem}}
 /* Der Klick-Ring im Hero-Film gehört der Film-Steuerung. Die Dauer-Animation des Rings in Schritt 2 (.tap) galt versehentlich auch für ihn: er blinkte durchgehend, auch nach dem Filmende. */
 .kf .tap{animation:none}
+
+/* ===== Anmeldung im Modus 'direkt' (17.11.2026) ===== */
+/* Das Exit-Popup zeigt nur Termin und Knopf; Vorname und E-Mail fragt WebinarJam ab. */
+.anmeldung-direkt #anmeldung label,.anmeldung-direkt #anmeldung .fehler{display:none}
