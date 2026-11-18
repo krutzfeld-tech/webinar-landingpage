@@ -103,7 +103,7 @@ Geändert:
 Quellen, nichts erfunden:
 - Wortlaut „Gotcha, die App von Max & Molly“, „Hersteller smarter Hundehalsbänder“, „Studio für Beckenbodentraining“, „2 Standorte, eigene App. Erst durchgeklickt, dann gebaut.“: Webinar-Deck, Folien 55 und 169 (dort zusätzlich „Heute 160 Kunden“, auf der Seite weggelassen).
 - „Mit der App Gotcha finden verlorene Haustiere nach Hause. Beratung und Weiterentwicklung der App.“: nach dem Text zu Gotcha auf krutzfeld.tech. Link https://gotchapet.com wie dort.
-- Gotcha-Logo: `public/assets/logos-cases/gotcha.png` aus dem Repo der Website krutzfeld.tech (beschnitten). PelviVibes-Zeichen: `favicon.svg` von https://www.pelvi-vibes.ch.
+- Max-&-Molly-Logo: `apps/gotcha-app/src/assets/images/max-molly-small_120x@2x.avif` aus dem Gotcha-Repo (240 × 240, unverändert, als WebP). Seit 18.11.2026 statt des alten Gotcha-Logos von krutzfeld.tech, das Martin als veraltet bezeichnet hat. PelviVibes-Zeichen: `favicon.svg` von https://www.pelvi-vibes.ch.
 - Bildschirme: `r-heute-1`, `r-tier`, `ab-suche-1`, `ab-suche-2`, `r-suchmodus`, `r-gefunden` aus `krutzfeld-technologies-nexus/projekte/gotcha/spezifikationen/2026-11-16-alle-ablaeufe/screens/` (Prototyp-Stand 16.11.2026).
 - Die sieben Mitteilungen im Film zeigen einen Prototyp in 7 Tagen als Beispiel. Ihre Inhalte gibt es im Gotcha-Prototyp wirklich (Startseite, Hund anmelden in drei Schritten, je Bildschirm eine Frage, Finder-Seite, Einstieg über den QR-Code, Alarm an die Nachbarn); die Zuordnung zu einzelnen Tagen ist Darstellung. Der Prototyp selbst entstand vom 10.11. bis 16.11.2026.
 - Nicht übernommen: die Zahl „7.000 neue Nutzer im Monat, vorher 10“ aus dem Deck. Sie steht in keiner Gotcha-Quelle und wäre eine Geschäftszahl des Kunden.

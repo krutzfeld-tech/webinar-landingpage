@@ -1124,3 +1124,8 @@ section:not(.hero) .kopf .cta-faces{justify-content:center}
 /* ===== Anmeldung im Modus 'direkt' (17.11.2026) ===== */
 /* Das Exit-Popup zeigt nur Termin und Knopf; Vorname und E-Mail fragt WebinarJam ab. */
 .anmeldung-direkt #anmeldung label,.anmeldung-direkt #anmeldung .fehler{display:none}
+
+/* Quadratisches Logo (Max & Molly) im runden Rahmen. Der Kreis sitzt auf einer Hülle, nicht auf dem Bild: Auf einem Bild
+   schneidet border-radius den Inhalt auch mit Innenabstand rund zu, und die Schrift am Rand des Logos fehlte. */
+.ref-bild.logo.eckig{display:flex;align-items:center;justify-content:center;padding:0;box-sizing:border-box}
+.ref-bild.logo.eckig img{width:62%;height:62%;object-fit:contain;display:block}
